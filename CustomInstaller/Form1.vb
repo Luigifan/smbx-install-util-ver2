@@ -5,7 +5,7 @@ Imports System.Runtime.InteropServices
 
 Public Class Form1
     Public installDir As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\SMBX Episode Manager"
-    Public desktopDir As String = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory)
+    Public desktopDir As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
 
     Public smbxDownload As String = "http://rohara.x10.mx/smbxpublisher/appfiles/SMBX.zip"
     Public episodeManagerExe As String = "http://rohara.x10.mx/smbxpublisher/appfiles/SMBXEpisodeManager_Latest.exe"
@@ -28,7 +28,7 @@ Public Class Form1
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         '470
-        Do Until Me.Height = 470
+        Do Until Me.Height = 392
             Me.Height += 2
             Button1.Hide()
             Button2.Hide()

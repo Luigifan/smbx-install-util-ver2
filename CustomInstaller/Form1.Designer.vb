@@ -127,7 +127,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 124)
+        Me.ClientSize = New System.Drawing.Size(535, 121)
         Me.Controls.Add(Me.extractProgressBar)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TextBox1)
