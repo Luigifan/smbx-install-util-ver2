@@ -28,12 +28,12 @@ Public Class Form1
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         '470
-        Do Until Me.Height = 392
+        Button1.Hide()
+        Button2.Hide()
+        smbx.Enabled = False
+        episodeManager.Enabled = False
+        Do Until Me.Height = 400
             Me.Height += 2
-            Button1.Hide()
-            Button2.Hide()
-            smbx.Enabled = False
-            episodeManager.Enabled = False
         Loop
         If smbx.Checked = True Then
             InstallBoth()
