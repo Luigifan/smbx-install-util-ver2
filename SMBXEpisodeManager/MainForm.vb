@@ -118,7 +118,16 @@ Public Class MainForm
         My.Computer.FileSystem.DeleteDirectory(SelectedWorld, FileIO.UIOption.AllDialogs, FileIO.RecycleOption.SendToRecycleBin, FileIO.UICancelOption.DoNothing)
         ReloadWorldsDir()
     End Sub
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+        Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
+        If My.Computer.FileSystem.FileExists(smbxexe) = True Then
+            Process.Start(smbxexe)
+        Else
+            MsgBox("Unable to find " + smbxexe + " be sure to check your settings!", MsgBoxStyle.Critical)
+        End If
 
+
+    End Sub
     
     'User generated crap
     '
@@ -155,5 +164,6 @@ Public Class MainForm
     End Sub
 
    
+    
     
 End Class

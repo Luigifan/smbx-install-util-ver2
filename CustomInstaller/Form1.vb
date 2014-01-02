@@ -43,7 +43,8 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
+        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.Shell32.dll", Environment.CurrentDirectory + "Interop.Shell32.dll")
+        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.IWshRuntimeLibrary.dll", Environment.CurrentDirectory + "Interop.IWshRuntimeLibrary.dll")
         Label3.Text = "Will be installed to: " + installDir
     End Sub
     '
@@ -83,7 +84,8 @@ Public Class Form1
                 .Enabled = True
                 .Start()
             End With
-
+            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "Interop.Shell32.dll")
+            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "Interop.IWshRuntimeLibrary.dll")
             MsgBox("Setup complete!" + vbNewLine + "Installed to: " + installDir)
             End
         Else
