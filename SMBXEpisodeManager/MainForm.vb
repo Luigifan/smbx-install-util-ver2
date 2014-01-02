@@ -85,7 +85,7 @@ Public Class MainForm
         Dim DownloadedFile As String = settingsIni.ReadValue("Settings", "worldlocation") + "\" + ZipName
 
         'My.Computer.Network.DownloadFile(TextBox3.Text, My.Settings.worldlocation + "\" + ZipName, String.Empty, String.Empty, True, String.Empty, True)
-        My.Computer.Network.DownloadFile(generatedDownloadLink, settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip", "", "", True, 30, True)
+        My.Computer.Network.DownloadFile(generatedDownloadLink, settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip", "", "", True, 30, True, FileIO.UICancelOption.DoNothing)
         Dim ZiptoUnzip As String = settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip"
         If My.Computer.FileSystem.DirectoryExists(EpisodeFolderName) Then
             Dim TargetDir As String = EpisodeFolderName
@@ -141,10 +141,10 @@ Public Class MainForm
         Dim curver As String = My.Application.Info.Version.ToString
 
         updater.checkinternet()
-        updater.checkversion("https://dl.dropboxusercontent.com/u/62304851/version_smbx.txt", curver)
+        updater.checkversion("http://rohara.x10.mx/smbxpublisher/appfiles/version_smbx_new.txt", curver)
         'updater.checkversion(Environment.CurrentDirectory + "\newestversion.txt", curver)
         If updater.updateavailable = True Then
-            'My.Computer.Network.DownloadFile("http://rohara.x10.mx/smbxpublisher/appfiles/Update_Latest.exe", Environment.CurrentDirectory + "\Update.exe", "", "", False, "1000", True)
+            My.Computer.Network.DownloadFile("http://rohara.x10.mx/smbxpublisher/appfiles/SMBXUpdater_Latest.exe", Environment.CurrentDirectory + "\Update.exe", "", "", False, "1000", True)
             Dim oForm As New UpdateConfirm
             oForm.Owner = Me
             oForm.ShowDialog()

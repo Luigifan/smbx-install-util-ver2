@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("SMBXEpisodeManager")> 
-<Assembly: AssemblyDescription("A tool to download and install and manage SMBX Episodes")> 
-<Assembly: AssemblyCompany("Mike Santiago")> 
-<Assembly: AssemblyProduct("SMBXEpisodeManager")> 
+<Assembly: AssemblyTitle("SMBXUpdater")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyProduct("SMBXUpdater")> 
 <Assembly: AssemblyCopyright("Copyright ©  2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("e555ab03-ea3e-4a41-be30-2d282194b3fd")> 
+<Assembly: Guid("4ca629f7-b36f-45cc-b0ce-dde143e24835")> 
 
 ' Version information for an assembly consists of the following four values:
 '

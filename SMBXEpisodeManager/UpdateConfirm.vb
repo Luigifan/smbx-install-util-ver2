@@ -4,13 +4,13 @@ Imports System.IO
 Public Class UpdateConfirm
 
     Private Sub UpdateConfirm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim address2 As String = "https://dl.dropboxusercontent.com/u/62304851/version_smbx.txt"
+        Dim address2 As String = "http://rohara.x10.mx/smbxpublisher/appfiles/version_smbx_new.txt"
         'Dim address2 As String = Environment.CurrentDirectory + "\newestversion.txt"
         Dim client2 As WebClient = New WebClient()
         Dim newversion As StreamReader = New StreamReader(client2.OpenRead(address2))
 
 
-        Dim address As String = "https://dl.dropboxusercontent.com/u/62304851/changelog_smbx.rtf"
+        Dim address As String = "http://rohara.x10.mx/smbxpublisher/appfiles/changelog_smbx.rtf"
         'Dim address As String = Environment.CurrentDirectory + "\changelog.txt"
         Dim client As WebClient = New WebClient()
         Dim changelog As StreamReader = New StreamReader(client.OpenRead(address))

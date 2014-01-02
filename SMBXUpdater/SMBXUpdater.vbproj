@@ -6,11 +6,11 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9AC9FFC3-731A-4427-B14B-3A9F09D2A954}</ProjectGuid>
+    <ProjectGuid>{40C3C3FA-0F26-4027-B487-9702B0FE111B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SMBXEpisodeManager.My.MyApplication</StartupObject>
-    <RootNamespace>SMBXEpisodeManager</RootNamespace>
-    <AssemblyName>SMBXEpisodeManager</AssemblyName>
+    <StartupObject>SMBXUpdater.My.MyApplication</StartupObject>
+    <RootNamespace>SMBXUpdater</RootNamespace>
+    <AssemblyName>SMBXUpdater</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SMBXEpisodeManager.xml</DocumentationFile>
+    <DocumentationFile>SMBXUpdater.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SMBXEpisodeManager.xml</DocumentationFile>
+    <DocumentationFile>SMBXUpdater.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -48,19 +48,7 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Icon_ico.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ionic.Zip">
-      <HintPath>.\Ionic.Zip.dll</HintPath>
-    </Reference>
-    <Reference Include="Setting">
-      <HintPath>.\Setting.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -70,9 +58,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="UpdateVB">
-      <HintPath>.\UpdateVB.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -87,7 +72,6 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -110,24 +94,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Settings.Designer.vb">
-      <DependentUpon>Settings.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Settings.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SplashScreen.Designer.vb">
-      <DependentUpon>SplashScreen.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SplashScreen.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateConfirm.Designer.vb">
-      <DependentUpon>UpdateConfirm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateConfirm.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainForm.resx">
@@ -139,18 +105,8 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen.resx">
-      <DependentUpon>SplashScreen.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UpdateConfirm.resx">
-      <DependentUpon>UpdateConfirm.vb</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -160,34 +116,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Icon_ico.ico" />
-    <None Include="Resources\Toad fly.png" />
-    <None Include="Resources\Test.gif" />
-    <None Include="Resources\StatusStrip_Snow.gif" />
-    <None Include="Resources\snowy.gif" />
-    <None Include="Resources\snow.gif" />
-    <None Include="Resources\snow resized.gif" />
-    <None Include="Resources\Peach hold.png" />
-    <None Include="Resources\Mario jump.png" />
-    <None Include="Resources\LuigiSkid1.png" />
-    <None Include="Resources\LuigiSkid.png" />
-    <None Include="Resources\Icon.png" />
-    <None Include="Resources\Hammer mario jump.png" />
-    <None Include="Resources\Frame.gif" />
-    <None Include="Resources\FirePeachHold1.png" />
-    <None Include="Resources\FirePeachHold.png" />
-    <None Include="Resources\exclamation mark.png" />
-    <None Include="Resources\episode manager icon final.png" />
-    <None Include="Resources\Background_Main_Full1.png" />
-    <None Include="Resources\Background_Main_Full.png" />
-    <None Include="Resources\background 5.png" />
-    <None Include="Resources\background 4.png" />
-    <None Include="Resources\background 3.png" />
-    <None Include="Resources\background 2.png" />
-    <None Include="Resources\background 1.png" />
-    <None Include="Resources\Animated-SnowFalling.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
