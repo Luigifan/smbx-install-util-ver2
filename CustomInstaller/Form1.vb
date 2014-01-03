@@ -12,11 +12,21 @@ Public Class Form1
     Public UpdateVbDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/UpdateVB.dll"
     Public settingDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/Setting.dll"
     Public ionicZipDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/Ionic.Zip.dll"
+    Public Event FormClosing As FormClosingEventHandler
+
 
 
     <DllImport("user32.dll", EntryPoint:="FlashWindow")> _
     Public Shared Function FlashWindow(ByVal hwnd As Integer, ByVal bInvert As Integer) As Integer
     End Function
+    Private Sub Form1_FormClosing(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.FormClosing
+        Try
+            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\Interop.Shell32.dll")
+            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\Interop.IWshRuntimeLibrary.dll")
+        Catch ex As Exception
+            TextBox1.AppendText("Error! could not remove external libs: " + ex.Message() + vbNewLine)
+        End Try
+    End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         If MsgBox("Are you sure you wish to cancel the installer?", MsgBoxStyle.YesNo, "Cancel?") = MsgBoxResult.Yes Then
@@ -43,8 +53,8 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.Shell32.dll", Environment.CurrentDirectory + "Interop.Shell32.dll")
-        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.IWshRuntimeLibrary.dll", Environment.CurrentDirectory + "Interop.IWshRuntimeLibrary.dll")
+        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.Shell32.dll", Environment.CurrentDirectory + "\Interop.Shell32.dll")
+        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.IWshRuntimeLibrary.dll", Environment.CurrentDirectory + "\Interop.IWshRuntimeLibrary.dll")
         Label3.Text = "Will be installed to: " + installDir
     End Sub
     '
@@ -84,8 +94,8 @@ Public Class Form1
                 .Enabled = True
                 .Start()
             End With
-            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "Interop.Shell32.dll")
-            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "Interop.IWshRuntimeLibrary.dll")
+            
+            
             MsgBox("Setup complete!" + vbNewLine + "Installed to: " + installDir)
             End
         Else
@@ -148,7 +158,7 @@ Public Class Form1
     Public Shared Function CheckForInternetConnection() As Boolean
         Try
             Using client = New WebClient()
-                Using stream = client.OpenRead("http://rohara.x10.mx/")
+                Using stream = client.OpenRead("http://google.com")
                     Return True
                 End Using
             End Using
@@ -161,7 +171,7 @@ Public Class Form1
 
         Try
             Dim wshShell As New WshShell
-            Dim shortcut As IWshRuntimeLibrary.IWshShortcut = DirectCast(wshShell.CreateShortcut(desktopDir + "SMBX Episode Manager.lnk"), IWshRuntimeLibrary.IWshShortcut)
+            Dim shortcut As IWshRuntimeLibrary.IWshShortcut = DirectCast(wshShell.CreateShortcut(desktopDir + "\SMBX Episode Manager.lnk"), IWshRuntimeLibrary.IWshShortcut)
             With shortcut
                 .TargetPath = installDir + "\SMBXEpisodeManager.exe"
                 .WindowStyle = 1I
@@ -185,4 +195,7 @@ Public Class Form1
     Private Sub Timer1_Tick_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         FlashWindow(Me.Handle, 1)
     End Sub
+
+
+
 End Class
