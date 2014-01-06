@@ -41,6 +41,7 @@ Partial Class MainForm
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.RefreshIndex = New System.Windows.Forms.Button()
+        Me.RefreshWorlds = New System.Windows.Forms.Button()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.IconImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -210,12 +211,23 @@ Partial Class MainForm
         Me.RefreshIndex.TabIndex = 15
         Me.RefreshIndex.UseVisualStyleBackColor = True
         '
+        'RefreshWorlds
+        '
+        Me.RefreshWorlds.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.arrow_refresh
+        Me.RefreshWorlds.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RefreshWorlds.Location = New System.Drawing.Point(331, 361)
+        Me.RefreshWorlds.Name = "RefreshWorlds"
+        Me.RefreshWorlds.Size = New System.Drawing.Size(36, 36)
+        Me.RefreshWorlds.TabIndex = 16
+        Me.RefreshWorlds.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Background_Main_Full
         Me.ClientSize = New System.Drawing.Size(572, 542)
+        Me.Controls.Add(Me.RefreshWorlds)
         Me.Controls.Add(Me.RefreshIndex)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.StatusStrip1)
@@ -267,5 +279,6 @@ Partial Class MainForm
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents RefreshIndex As System.Windows.Forms.Button
+    Friend WithEvents RefreshWorlds As System.Windows.Forms.Button
 
 End Class

@@ -7,6 +7,7 @@ Imports System.Xml.Serialization
 Imports Ionic.Zip
 Imports UpdateVB
 Imports Setting.IniFile
+Imports System.Net
 
 Public Class MainForm
     Public updater As New UpdateVB.UpdateVB
@@ -19,7 +20,10 @@ Public Class MainForm
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim firstRun As String
         firstRun = settingsIni.ReadValue("Settings", "isFirstRun")
-
+        If CheckForInternetConnection() = False Then
+            MsgBox("No internet connection! Closing..")
+            End
+        End If
 
         If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\settings.ini") Then
             If firstRun = "True" Then
@@ -128,7 +132,20 @@ Public Class MainForm
 
 
     End Sub
-    
+    Private Sub RefreshIndex_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshIndex.Click
+        xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
+        Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
+        AvailableEpisodes.DataSource = games
+    End Sub
+    Private Sub RefreshWorlds_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshWorlds.Click
+        If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
+            InstalledWorlds.DataSource = Directory.GetDirectories(settingsIni.ReadValue("Settings", "worldlocation"))
+        Else
+            MsgBox("Directory not Found!", MsgBoxStyle.Critical)
+        End If
+    End Sub
+
+
     'User generated crap
     '
     '
@@ -163,7 +180,19 @@ Public Class MainForm
 
     End Sub
 
-   
-    
-    
+    Public Shared Function CheckForInternetConnection() As Boolean
+        Try
+            Using client = New WebClient()
+                Using stream = client.OpenRead("http://google.com")
+                    Return True
+                End Using
+            End Using
+        Catch
+            Return False
+        End Try
+    End Function
+
+
+
+
 End Class
