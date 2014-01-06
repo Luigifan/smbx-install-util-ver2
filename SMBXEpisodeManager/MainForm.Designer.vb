@@ -40,6 +40,7 @@ Partial Class MainForm
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.RefreshIndex = New System.Windows.Forms.Button()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.IconImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -199,12 +200,23 @@ Partial Class MainForm
         Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton1.Text = "Launch SMBX"
         '
+        'RefreshIndex
+        '
+        Me.RefreshIndex.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.arrow_refresh
+        Me.RefreshIndex.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.RefreshIndex.Location = New System.Drawing.Point(99, 361)
+        Me.RefreshIndex.Name = "RefreshIndex"
+        Me.RefreshIndex.Size = New System.Drawing.Size(36, 36)
+        Me.RefreshIndex.TabIndex = 15
+        Me.RefreshIndex.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Background_Main_Full
         Me.ClientSize = New System.Drawing.Size(572, 542)
+        Me.Controls.Add(Me.RefreshIndex)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Button3)
@@ -254,5 +266,6 @@ Partial Class MainForm
     Friend WithEvents isUpdated As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents RefreshIndex As System.Windows.Forms.Button
 
 End Class

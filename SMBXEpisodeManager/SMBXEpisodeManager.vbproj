@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_ico.ico" />
+    <None Include="Resources\arrow_refresh.png" />
     <None Include="Resources\favicon.ico" />
     <None Include="Resources\Toad fly.png" />
     <None Include="Resources\Test.gif" />

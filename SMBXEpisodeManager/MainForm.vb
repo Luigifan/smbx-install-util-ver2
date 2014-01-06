@@ -140,10 +140,10 @@ Public Class MainForm
         End If
     End Sub
     Public Sub RefreshAllItems()
-        ReloadWorldsDir()
         xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
+        ReloadWorldsDir()
         'repoUpdated.Text = "Repo Updated"
     End Sub
     Public Sub CheckForUpdates()
