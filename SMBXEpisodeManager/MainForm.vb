@@ -15,6 +15,7 @@ Public Class MainForm
     Dim settingsIni As New Setting.IniFile(Environment.CurrentDirectory + "\settings.ini")
     Dim generatedDownloadLink As String = "null"
     Dim generatedTechName As String = "null"
+    Dim pixelsServers As Boolean = True
 
 
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -24,7 +25,12 @@ Public Class MainForm
             MsgBox("No internet connection! Closing..")
             End
         End If
-
+        If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\Update.exe") Then
+            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\Update.exe")
+        End If
+        If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\changelog.rtf") Then
+            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\changelog.rtf")
+        End If
         If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\settings.ini") Then
             If firstRun = "True" Then
                 MsgBox("Hi! I see this is your first run!" & vbNewLine & "Please go to Settings and configure your SMBX directories")
@@ -40,7 +46,7 @@ Public Class MainForm
             sw.WriteLine("smbxpath=C:\SMBX")
             sw.WriteLine("worldlocation=C:\SMBX\worlds")
             sw.WriteLine("executableloc=C:\SMBX\smbx.exe")
-
+            sw.WriteLine("dlServers=pixels")
             sw.Close()
             If firstRun = "True" Then
                 MsgBox("Hi! I see this is your first run!" & vbNewLine & "Please go to Settings and configure your SMBX directories")
@@ -72,7 +78,7 @@ Public Class MainForm
     End Sub
     Private Sub InstalledWorlds_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InstalledWorlds.SelectedIndexChanged
         deleteButton.Enabled = True
-        Dim SelectWorld As String = CStr(InstalledWorlds.SelectedItem)
+        Dim SelectWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
     End Sub
     Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         Dim oForm As New Settings
@@ -118,8 +124,11 @@ Public Class MainForm
         MsgBox("Episode completed extracting! Enjoy!")
     End Sub
     Private Sub deleteButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteButton.Click
-        Dim SelectedWorld As String = CStr(InstalledWorlds.SelectedItem)
-        My.Computer.FileSystem.DeleteDirectory(SelectedWorld, FileIO.UIOption.AllDialogs, FileIO.RecycleOption.SendToRecycleBin, FileIO.UICancelOption.DoNothing)
+        Dim SelectedWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
+        Dim smbxDir As String = settingsIni.ReadValue("settings", "worldlocation")
+        'Debugging
+        MsgBox("Going to delete " + vbNewLine + smbxDir + "\" + SelectedWorld)
+        My.Computer.FileSystem.DeleteDirectory(smbxDir + "\" + SelectedWorld, FileIO.UIOption.AllDialogs, FileIO.RecycleOption.SendToRecycleBin, FileIO.UICancelOption.DoNothing)
         ReloadWorldsDir()
     End Sub
     Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
@@ -133,13 +142,21 @@ Public Class MainForm
 
     End Sub
     Private Sub RefreshIndex_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshIndex.Click
-        xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
+        If pixelsServers = True Then
+            xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
+        ElseIf pixelsServers = False Then
+            xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
+        End If
+
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
     End Sub
     Private Sub RefreshWorlds_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshWorlds.Click
         If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
-            InstalledWorlds.DataSource = Directory.GetDirectories(settingsIni.ReadValue("Settings", "worldlocation"))
+            Dim di As New DirectoryInfo(settingsIni.ReadValue("Settings", "worldlocation"))
+            Dim subdi As DirectoryInfo() = di.GetDirectories()
+            InstalledWorlds.DataSource = subdi.ToList
+
         Else
             MsgBox("Directory not Found!", MsgBoxStyle.Critical)
         End If
@@ -151,13 +168,21 @@ Public Class MainForm
     '
     Public Sub ReloadWorldsDir()
         If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
-            InstalledWorlds.DataSource = Directory.GetDirectories(settingsIni.ReadValue("Settings", "worldlocation"))
+            Dim di As New DirectoryInfo(settingsIni.ReadValue("Settings", "worldlocation"))
+            Dim subdi As DirectoryInfo() = di.GetDirectories()
+            InstalledWorlds.DataSource = subdi.ToList
+
         Else
             MsgBox("Directory not Found!", MsgBoxStyle.Critical)
         End If
     End Sub
     Public Sub RefreshAllItems()
-        xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
+        If pixelsServers = True Then
+            xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
+        ElseIf pixelsServers = False Then
+            xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
+        End If
+
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
         ReloadWorldsDir()

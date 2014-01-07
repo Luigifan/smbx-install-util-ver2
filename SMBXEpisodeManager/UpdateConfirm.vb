@@ -11,7 +11,7 @@ Public Class UpdateConfirm
         Dim versionreader As String
         versionreader = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "\version.txt")
 
-        Dim address As String = "https://dl.dropboxusercontent.com/u/62304851/changelog_smbx.rtf"
+        Dim address As String = "http://rohara.x10.mx/smbxpublisher/appfiles/changelog_smbx.rtf"
         'Dim client As WebClient = New WebClient()
         'Dim changelog As StreamReader = New StreamReader(client.OpenRead(address))
         My.Computer.Network.DownloadFile(address, Environment.CurrentDirectory + "\changelog.rtf", vbNull, vbNull, False, 99999, True)
@@ -37,6 +37,10 @@ Public Class UpdateConfirm
     End Sub
 
     Private Sub RichTextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RichTextBox1.TextChanged
+
+    End Sub
+
+    Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
 
     End Sub
 End Class

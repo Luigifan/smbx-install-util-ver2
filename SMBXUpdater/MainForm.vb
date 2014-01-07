@@ -11,6 +11,8 @@
             My.Computer.FileSystem.CopyFile(CurrentExe, BackupExe)
         End If
         My.Computer.Network.DownloadFile("http://rohara.x10.mx/smbxpublisher/appfiles/SMBXEpisodeManager_Latest.exe", CurrentExe, vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
+        Dim sw As New System.IO.StreamWriter(Environment.CurrentDirectory + "\settings.ini")
+        'sw.WriteLine("dlServers=pixels")
         If MsgBox("Update complete! Do you wish to launch?", MsgBoxStyle.YesNo, "Update Complete") = DialogResult.Yes Then
             Process.Start(CurrentExe)
         Else
@@ -20,5 +22,9 @@
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         Me.Close()
+    End Sub
+
+    Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

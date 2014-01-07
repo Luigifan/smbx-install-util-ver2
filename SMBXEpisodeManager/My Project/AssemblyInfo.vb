@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("A tool to download and install and manage SMBX Episodes")> 
 <Assembly: AssemblyCompany("Mike Santiago")> 
 <Assembly: AssemblyProduct("SMBXEpisodeManager")> 
-<Assembly: AssemblyCopyright("Copyright ©  2014")> 
+<Assembly: AssemblyCopyright("Copyright © 2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.0.1.1")> 
-<Assembly: AssemblyFileVersion("2.0.1.1")> 
+<Assembly: AssemblyVersion("2.0.2.0")> 
+<Assembly: AssemblyFileVersion("2.0.2.0")> 
