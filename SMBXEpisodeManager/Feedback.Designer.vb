@@ -23,6 +23,7 @@ Partial Class Feedback
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.WebBrowser1 = New System.Windows.Forms.WebBrowser()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'WebBrowser1
@@ -32,9 +33,18 @@ Partial Class Feedback
         Me.WebBrowser1.Name = "WebBrowser1"
         Me.WebBrowser1.ScriptErrorsSuppressed = True
         Me.WebBrowser1.ScrollBarsEnabled = False
-        Me.WebBrowser1.Size = New System.Drawing.Size(441, 554)
+        Me.WebBrowser1.Size = New System.Drawing.Size(441, 518)
         Me.WebBrowser1.TabIndex = 0
-        Me.WebBrowser1.Url = New System.Uri("http://smbxepisodes.tk/thankyou_basic.html", System.UriKind.Absolute)
+        Me.WebBrowser1.Url = New System.Uri("http://smbxepisodes.tk/feedback_basic.html", System.UriKind.Absolute)
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(193, 542)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "Close"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Feedback
         '
@@ -44,6 +54,7 @@ Partial Class Feedback
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClientSize = New System.Drawing.Size(478, 598)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.WebBrowser1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Feedback"
@@ -53,4 +64,5 @@ Partial Class Feedback
 
     End Sub
     Friend WithEvents WebBrowser1 As System.Windows.Forms.WebBrowser
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

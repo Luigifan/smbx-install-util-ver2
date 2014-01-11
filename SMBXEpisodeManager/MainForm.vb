@@ -73,8 +73,12 @@ Public Class MainForm
         End If
         IconImage.Visible = True
         Dim ZipName As String = node.@ZipName
-        Dim req As System.Net.WebRequest = System.Net.HttpWebRequest.Create(node.@DownloadLink)
-        req.Method = "HEAD"
+        If node.@DownloadLink = "null" Then
+        Else
+            Dim req As System.Net.WebRequest = System.Net.HttpWebRequest.Create(node.@DownloadLink)
+            req.Method = "HEAD"
+        End If
+
     End Sub
     Private Sub InstalledWorlds_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InstalledWorlds.SelectedIndexChanged
         deleteButton.Enabled = True
@@ -85,43 +89,48 @@ Public Class MainForm
         oForm.ShowDialog()
     End Sub
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        MsgBox("Episode will be downloaded and saved to " + settingsIni.ReadValue("Settings", "worldlocation"))
-        Dim EpisodeFolderName As String = xml...<episode>.ToString
-        Dim node As XElement = xml...<episode>.First(Function(n) n.Value = AvailableEpisodes.Text)
-        Dim ZipName As String = node.@ZipName
-        Dim TechName As String = node.@TechName
-        'MsgBox("The following episode will be download: " + ListBox1.SelectedItem() + vbNewLine + "It will be saved to " + My.Settings.worldlocation + vbNewLine + "Proceed?", MsgBoxStyle.YesNo)
-
-        Dim DownloadedFile As String = settingsIni.ReadValue("Settings", "worldlocation") + "\" + ZipName
-
-        'My.Computer.Network.DownloadFile(TextBox3.Text, My.Settings.worldlocation + "\" + ZipName, String.Empty, String.Empty, True, String.Empty, True)
-        My.Computer.Network.DownloadFile(generatedDownloadLink, settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip", "", "", True, 30, True, FileIO.UICancelOption.DoNothing)
-        Dim ZiptoUnzip As String = settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip"
-        If My.Computer.FileSystem.DirectoryExists(EpisodeFolderName) Then
-            Dim TargetDir As String = EpisodeFolderName
-            Using zip1 As ZipFile = ZipFile.Read(ZiptoUnzip)
-                Dim entry As ZipEntry
-                For Each entry In zip1
-                    entry.Extract(EpisodeFolderName, ExtractExistingFileAction.OverwriteSilently)
-                Next
-            End Using
-            ReloadWorldsDir()
+        If generatedDownloadLink = "null" Then
+            MsgBox("You can't download a seperator!")
         Else
-            My.Computer.FileSystem.CreateDirectory(settingsIni.ReadValue("Settings", "worldlocation") + "\" + TechName)
-            Dim TargetDir As String = settingsIni.ReadValue("Settings", "worldlocation") + "\" + TechName
-            Using zip1 As ZipFile = ZipFile.Read(ZiptoUnzip)
-                Dim entry As ZipEntry
-                'DEBUG MESSAGES
-                MsgBox("Extracting to " + TargetDir)
-                For Each entry In zip1
 
-                    entry.Extract(TargetDir, ExtractExistingFileAction.OverwriteSilently)
-                Next
+            MsgBox("Episode will be downloaded and saved to " + settingsIni.ReadValue("Settings", "worldlocation"))
+            Dim EpisodeFolderName As String = xml...<episode>.ToString
+            Dim node As XElement = xml...<episode>.First(Function(n) n.Value = AvailableEpisodes.Text)
+            Dim ZipName As String = node.@ZipName
+            Dim TechName As String = node.@TechName
+            'MsgBox("The following episode will be download: " + ListBox1.SelectedItem() + vbNewLine + "It will be saved to " + My.Settings.worldlocation + vbNewLine + "Proceed?", MsgBoxStyle.YesNo)
+
+            Dim DownloadedFile As String = settingsIni.ReadValue("Settings", "worldlocation") + "\" + ZipName
+
+            'My.Computer.Network.DownloadFile(TextBox3.Text, My.Settings.worldlocation + "\" + ZipName, String.Empty, String.Empty, True, String.Empty, True)
+            My.Computer.Network.DownloadFile(generatedDownloadLink, settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip", "", "", True, 30, True, FileIO.UICancelOption.DoNothing)
+            Dim ZiptoUnzip As String = settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip"
+            If My.Computer.FileSystem.DirectoryExists(EpisodeFolderName) Then
+                Dim TargetDir As String = EpisodeFolderName
+                Using zip1 As ZipFile = ZipFile.Read(ZiptoUnzip)
+                    Dim entry As ZipEntry
+                    For Each entry In zip1
+                        entry.Extract(EpisodeFolderName, ExtractExistingFileAction.OverwriteSilently)
+                    Next
+                End Using
                 ReloadWorldsDir()
-            End Using
+            Else
+                My.Computer.FileSystem.CreateDirectory(settingsIni.ReadValue("Settings", "worldlocation") + "\" + TechName)
+                Dim TargetDir As String = settingsIni.ReadValue("Settings", "worldlocation") + "\" + TechName
+                Using zip1 As ZipFile = ZipFile.Read(ZiptoUnzip)
+                    Dim entry As ZipEntry
+                    'DEBUG MESSAGES
+                    MsgBox("Extracting to " + TargetDir)
+                    For Each entry In zip1
 
+                        entry.Extract(TargetDir, ExtractExistingFileAction.OverwriteSilently)
+                    Next
+                    ReloadWorldsDir()
+                End Using
+
+            End If
+            MsgBox("Episode completed extracting! Enjoy!")
         End If
-        MsgBox("Episode completed extracting! Enjoy!")
     End Sub
     Private Sub deleteButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteButton.Click
         Dim SelectedWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
