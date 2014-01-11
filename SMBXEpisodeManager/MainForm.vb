@@ -161,7 +161,10 @@ Public Class MainForm
             MsgBox("Directory not Found!", MsgBoxStyle.Critical)
         End If
     End Sub
-
+    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+        Dim oForm As New Feedback
+        oForm.ShowDialog()
+    End Sub
 
     'User generated crap
     '
@@ -220,4 +223,5 @@ Public Class MainForm
 
 
 
+    
 End Class

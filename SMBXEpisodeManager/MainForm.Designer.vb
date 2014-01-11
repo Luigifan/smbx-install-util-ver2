@@ -40,6 +40,7 @@ Partial Class MainForm
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.RefreshIndex = New System.Windows.Forms.Button()
         Me.RefreshWorlds = New System.Windows.Forms.Button()
         Me.StatusStrip1.SuspendLayout()
@@ -185,7 +186,7 @@ Partial Class MainForm
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(572, 25)
@@ -201,9 +202,20 @@ Partial Class MainForm
         Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton1.Text = "Launch SMBX"
         '
+        'ToolStripButton2
+        '
+        Me.ToolStripButton2.BackColor = System.Drawing.Color.Transparent
+        Me.ToolStripButton2.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
+        Me.ToolStripButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton2.Name = "ToolStripButton2"
+        Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton2.Text = "ToolStripButton2"
+        '
         'RefreshIndex
         '
-        Me.RefreshIndex.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.arrow_refresh
+        Me.RefreshIndex.BackgroundImage = CType(resources.GetObject("RefreshIndex.BackgroundImage"), System.Drawing.Image)
         Me.RefreshIndex.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.RefreshIndex.Location = New System.Drawing.Point(99, 361)
         Me.RefreshIndex.Name = "RefreshIndex"
@@ -213,7 +225,7 @@ Partial Class MainForm
         '
         'RefreshWorlds
         '
-        Me.RefreshWorlds.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.arrow_refresh
+        Me.RefreshWorlds.BackgroundImage = CType(resources.GetObject("RefreshWorlds.BackgroundImage"), System.Drawing.Image)
         Me.RefreshWorlds.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.RefreshWorlds.Location = New System.Drawing.Point(331, 361)
         Me.RefreshWorlds.Name = "RefreshWorlds"
@@ -280,5 +292,6 @@ Partial Class MainForm
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents RefreshIndex As System.Windows.Forms.Button
     Friend WithEvents RefreshWorlds As System.Windows.Forms.Button
+    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
 
 End Class
