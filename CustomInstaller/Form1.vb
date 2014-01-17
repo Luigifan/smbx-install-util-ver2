@@ -53,8 +53,8 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.Shell32.dll", Environment.CurrentDirectory + "\Interop.Shell32.dll", vbNull, vbNull, False, 100000, True)
-        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.IWshRuntimeLibrary.dll", Environment.CurrentDirectory + "\Interop.IWshRuntimeLibrary.dll", vbNull, vbNull, False, 10000, True)
+        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.Shell32.dll", Environment.CurrentDirectory + "\\Interop.Shell32.dll", vbNull, vbNull, False, 100000, True)
+        My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/Interop.IWshRuntimeLibrary.dll", Environment.CurrentDirectory + "\\Interop.IWshRuntimeLibrary.dll", vbNull, vbNull, False, 10000, True)
         Label3.Text = "Will be installed to: " + installDir
     End Sub
     '
