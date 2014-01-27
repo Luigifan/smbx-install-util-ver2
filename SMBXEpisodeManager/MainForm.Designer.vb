@@ -43,6 +43,7 @@ Partial Class MainForm
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.RefreshIndex = New System.Windows.Forms.Button()
         Me.RefreshWorlds = New System.Windows.Forms.Button()
+        Me.progressbar2 = New System.Windows.Forms.ToolStripProgressBar()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.IconImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,6 +71,7 @@ Partial Class MainForm
         Me.DescriptionTextBox.Location = New System.Drawing.Point(89, 420)
         Me.DescriptionTextBox.Multiline = True
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
+        Me.DescriptionTextBox.ReadOnly = True
         Me.DescriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.DescriptionTextBox.Size = New System.Drawing.Size(299, 62)
         Me.DescriptionTextBox.TabIndex = 2
@@ -78,6 +80,7 @@ Partial Class MainForm
         '
         Me.AuthorTextBox.Location = New System.Drawing.Point(89, 488)
         Me.AuthorTextBox.Name = "AuthorTextBox"
+        Me.AuthorTextBox.ReadOnly = True
         Me.AuthorTextBox.Size = New System.Drawing.Size(299, 20)
         Me.AuthorTextBox.TabIndex = 3
         '
@@ -186,7 +189,7 @@ Partial Class MainForm
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.progressbar2})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(572, 25)
@@ -212,7 +215,7 @@ Partial Class MainForm
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
         Me.ToolStripButton2.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton2.Text = "ToolStripButton2"
+        Me.ToolStripButton2.Text = "Submit Feedback on the Program from Here"
         '
         'RefreshIndex
         '
@@ -233,6 +236,12 @@ Partial Class MainForm
         Me.RefreshWorlds.Size = New System.Drawing.Size(36, 36)
         Me.RefreshWorlds.TabIndex = 16
         Me.RefreshWorlds.UseVisualStyleBackColor = True
+        '
+        'progressbar2
+        '
+        Me.progressbar2.Name = "progressbar2"
+        Me.progressbar2.Size = New System.Drawing.Size(100, 22)
+        Me.progressbar2.Visible = False
         '
         'MainForm
         '
@@ -294,5 +303,6 @@ Partial Class MainForm
     Friend WithEvents RefreshIndex As System.Windows.Forms.Button
     Friend WithEvents RefreshWorlds As System.Windows.Forms.Button
     Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents progressbar2 As System.Windows.Forms.ToolStripProgressBar
 
 End Class

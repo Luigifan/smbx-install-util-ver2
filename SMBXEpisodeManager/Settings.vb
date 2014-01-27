@@ -8,9 +8,9 @@ Public Class Settings
         execDir.Text = settingsIni.ReadValue("Settings", "executableloc")
         If settingsIni.ReadValue("Settings", "dlServers") = "pixels" Then
             RadioButton1.Checked = True
-            RadioButton2.Checked = False
+            'RadioButton2.Checked = False
         ElseIf settingsIni.ReadValue("Settings", "dlServer") = "mike" Then
-            RadioButton1.Checked = False
+            'RadioButton1.Checked = False
             RadioButton2.Checked = True
         End If
     End Sub

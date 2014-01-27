@@ -25,12 +25,14 @@ Public Class MainForm
             MsgBox("No internet connection! Closing..")
             End
         End If
-        If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\Update.exe") Then
+        Try
             My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\Update.exe")
-        End If
-        If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\changelog.rtf") Then
             My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\changelog.rtf")
-        End If
+        Catch ex As Exception
+            MsgBox("A problem occured! This is not a major issue however, " + vbNewLine + ex.Message())
+
+        End Try
+
         If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\settings.ini") Then
             If firstRun = "True" Then
                 MsgBox("Hi! I see this is your first run!" & vbNewLine & "Please go to Settings and configure your SMBX directories")
@@ -228,6 +230,7 @@ Public Class MainForm
             Return False
         End Try
     End Function
+
 
 
 
