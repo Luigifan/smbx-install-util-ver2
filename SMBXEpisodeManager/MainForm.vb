@@ -25,13 +25,26 @@ Public Class MainForm
             MsgBox("No internet connection! Closing..")
             End
         End If
-        Try
-            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\Update.exe")
-            My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\changelog.rtf")
-        Catch ex As Exception
-            MsgBox("A problem occured! This is not a major issue however, " + vbNewLine + ex.Message())
+        If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\Update.exe") Then
+            Try
+                My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\Update.exe")
 
-        End Try
+            Catch ex As Exception
+                MsgBox("A problem occured! This is not a major issue however, " + vbNewLine + ex.Message())
+            End Try
+        End If
+
+        If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\changelog.rtf") Then
+            Try
+
+                My.Computer.FileSystem.DeleteFile(Environment.CurrentDirectory + "\changelog.rtf")
+            Catch ex As Exception
+                MsgBox("A problem occured! This is not a major issue however, " + vbNewLine + ex.Message())
+            End Try
+        End If
+
+
+
 
         If My.Computer.FileSystem.FileExists(Environment.CurrentDirectory + "\settings.ini") Then
             If firstRun = "True" Then
@@ -60,6 +73,7 @@ Public Class MainForm
         End If
         RefreshAllItems()
         CheckForUpdates()
+        SmbxUpdates()
     End Sub
     Private Sub AvailableEpisodes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AvailableEpisodes.SelectedIndexChanged
         Button1.Enabled = True
@@ -191,6 +205,9 @@ Public Class MainForm
         End If
     End Sub
     Public Sub RefreshAllItems()
+        Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
+        Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
+
         If pixelsServers = True Then
             xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
         ElseIf pixelsServers = False Then
@@ -200,7 +217,34 @@ Public Class MainForm
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
         ReloadWorldsDir()
+
+        If My.Computer.FileSystem.FileExists(smbxexe) Then
+            'GetFileVersionInfo(smbxexe)
+            Try
+                ToolStripButton1.ToolTipText = "Launch SMBX " + smbxver
+            Catch Ex As Exception
+
+            End Try
+        End If
         'repoUpdated.Text = "Repo Updated"
+
+    End Sub
+    Private Function GetFileVersionInfo(ByVal filename As String) As Version
+        Return Version.Parse(FileVersionInfo.GetVersionInfo(filename).FileVersion)
+    End Function
+    Public Sub SmbxUpdates()
+        Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
+        Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
+        If My.Computer.FileSystem.FileExists(smbxexe) Then
+            If smbxver = "1.3" Then
+                Dim oForm As New UpdatingSmbx
+                oForm.ShowDialog()
+                ToolStripLabel1.Visible = True
+            End If
+        ElseIf smbxver = "1.3.0.1" Then
+            'proceed normally
+
+        End If
     End Sub
     Public Sub CheckForUpdates()
         Dim curver As String = My.Application.Info.Version.ToString
@@ -230,10 +274,8 @@ Public Class MainForm
             Return False
         End Try
     End Function
-
-
-
-
-
-    
+    Private Sub ToolStripLabel1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripLabel1.Click
+        Dim oForm As New UpdatingSmbx
+        oForm.ShowDialog()
+    End Sub
 End Class

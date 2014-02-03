@@ -7,7 +7,7 @@ Public Class Form1
     Public installDir As String = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\SMBX Episode Manager"
     Public desktopDir As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
 
-    Public smbxDownload As String = "http://rohara.x10.mx/smbxpublisher/appfiles/SMBX.zip"
+    Public smbxDownload As String = "http://download2119.mediafire.com/ur6842czlbfg/rlk94bj611e7ga2/SMBX+1.3.0.1.zip"
     Public episodeManagerExe As String = "http://rohara.x10.mx/smbxpublisher/appfiles/SMBXEpisodeManager_Latest.exe"
     Public UpdateVbDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/UpdateVB.dll"
     Public settingDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/Setting.dll"
@@ -128,7 +128,12 @@ Public Class Form1
             My.Computer.Network.DownloadFile(ionicZipDll, installDir + "\Ionic.Zip.dll", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
             '
             TextBox1.AppendText("Downloading " + smbxDownload + "to " + installDir + "\smbx.zip" + vbNewLine)
-            'My.Computer.Network.DownloadFile(smbxDownload, installDir + "\smbx.zip", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
+            Try
+                My.Computer.Network.DownloadFile(smbxDownload, installDir + "\smbx.zip", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
+            Catch ex As Exception
+                MsgBox("Error!" + vbNewLine + vbNewLine + ex.Message)
+            End Try
+
             '
             TextBox1.AppendText("Extracting..." + vbNewLine)
             Dim vbUnzip As New vbUnzip()

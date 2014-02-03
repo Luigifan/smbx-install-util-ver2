@@ -134,6 +134,12 @@
     <Compile Include="UpdateConfirm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UpdatingSmbx.Designer.vb">
+      <DependentUpon>UpdatingSmbx.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatingSmbx.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Feedback.resx">
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateConfirm.resx">
       <DependentUpon>UpdateConfirm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdatingSmbx.resx">
+      <DependentUpon>UpdatingSmbx.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

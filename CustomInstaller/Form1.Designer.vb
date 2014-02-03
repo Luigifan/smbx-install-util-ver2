@@ -73,9 +73,9 @@ Partial Class Form1
         Me.smbx.AutoSize = True
         Me.smbx.Location = New System.Drawing.Point(125, 97)
         Me.smbx.Name = "smbx"
-        Me.smbx.Size = New System.Drawing.Size(74, 17)
+        Me.smbx.Size = New System.Drawing.Size(126, 17)
         Me.smbx.TabIndex = 3
-        Me.smbx.Text = "SMBX 1.3"
+        Me.smbx.Text = "SMBX 1.3.0.1 (New!)"
         Me.smbx.UseVisualStyleBackColor = True
         '
         'Button1
