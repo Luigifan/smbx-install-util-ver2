@@ -12,6 +12,7 @@ Imports System.Net
 Public Class MainForm
     Public updater As New UpdateVB.UpdateVB
     Dim xml As New XDocument
+
     Dim settingsIni As New Setting.IniFile(Environment.CurrentDirectory + "\settings.ini")
     Dim generatedDownloadLink As String = "null"
     Dim generatedTechName As String = "null"
@@ -19,6 +20,7 @@ Public Class MainForm
 
 
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Control.CheckForIllegalCrossThreadCalls = False
         Dim firstRun As String
         firstRun = settingsIni.ReadValue("Settings", "isFirstRun")
         If CheckForInternetConnection() = False Then
@@ -100,63 +102,78 @@ Public Class MainForm
         deleteButton.Enabled = True
         Dim SelectWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
     End Sub
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-        Dim oForm As New Settings
-        oForm.ShowDialog()
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
     End Sub
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
         If generatedDownloadLink = "null" Then
             MsgBox("You can't download a seperator!")
         Else
-
             MsgBox("Episode will be downloaded and saved to " + settingsIni.ReadValue("Settings", "worldlocation"))
-            Dim EpisodeFolderName As String = xml...<episode>.ToString
-            Dim node As XElement = xml...<episode>.First(Function(n) n.Value = AvailableEpisodes.Text)
-            Dim ZipName As String = node.@ZipName
-            Dim TechName As String = node.@TechName
-            'MsgBox("The following episode will be download: " + ListBox1.SelectedItem() + vbNewLine + "It will be saved to " + My.Settings.worldlocation + vbNewLine + "Proceed?", MsgBoxStyle.YesNo)
-
-            Dim DownloadedFile As String = settingsIni.ReadValue("Settings", "worldlocation") + "\" + ZipName
-
-            'My.Computer.Network.DownloadFile(TextBox3.Text, My.Settings.worldlocation + "\" + ZipName, String.Empty, String.Empty, True, String.Empty, True)
+            
             My.Computer.Network.DownloadFile(generatedDownloadLink, settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip", "", "", True, 30, True, FileIO.UICancelOption.DoNothing)
-            Dim ZiptoUnzip As String = settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip"
-            If My.Computer.FileSystem.DirectoryExists(EpisodeFolderName) Then
-                Dim TargetDir As String = EpisodeFolderName
-                Using zip1 As ZipFile = ZipFile.Read(ZiptoUnzip)
-                    Dim entry As ZipEntry
-                    For Each entry In zip1
-                        entry.Extract(EpisodeFolderName, ExtractExistingFileAction.OverwriteSilently)
-                    Next
-                End Using
-                ReloadWorldsDir()
-            Else
-                My.Computer.FileSystem.CreateDirectory(settingsIni.ReadValue("Settings", "worldlocation") + "\" + TechName)
-                Dim TargetDir As String = settingsIni.ReadValue("Settings", "worldlocation") + "\" + TechName
-                Using zip1 As ZipFile = ZipFile.Read(ZiptoUnzip)
-                    Dim entry As ZipEntry
-                    'DEBUG MESSAGES
-                    MsgBox("Extracting to " + TargetDir)
-                    For Each entry In zip1
 
-                        entry.Extract(TargetDir, ExtractExistingFileAction.OverwriteSilently)
-                    Next
-                    ReloadWorldsDir()
-                End Using
+            Button1.Enabled = False
+            RefreshIndex.Enabled = False
+            RefreshWorlds.Enabled = False
+            deleteButton.Enabled = False
+            launchSMBXButton.Enabled = False
+            feedbackButton.Enabled = False
+            settingsToolStrip.Enabled = False
+            ToolStripProgressBar1.Visible = True
+            isExtract.Visible = True
+            BackgroundWorker1.RunWorkerAsync()
+            
 
-            End If
-            MsgBox("Episode completed extracting! Enjoy!")
+
+
+
+
         End If
+
+    End Sub
+    Private Sub BackgroundWorker1_DoWork(ByVal sender As System.Object, ByVal e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+        Dim UnzipWorld As New UnzipWorld
+        Dim node As XElement = xml...<episode>.First(Function(n) n.Value = AvailableEpisodes.Text)
+        Dim TechName As String = node.@TechName
+        Dim worldsDir As String = settingsIni.ReadValue("Settings", "worldlocation") + "\"
+        Dim ZiptoUnzip As String = settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip"
+        Try
+            UnzipWorld.unzipWorldK(TechName, generatedDownloadLink, ZiptoUnzip, worldsDir)
+            UnzipProgress.Dispose()
+        Catch ex As Exception
+            Console.WriteLine("Error! Message: " + ex.Message())
+        End Try
+    End Sub
+    Private Sub BackgroundWorker1_RunWorkerCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles BackgroundWorker1.RunWorkerCompleted
+        Dim doneWorking As Boolean = True
+
+        MsgBox("Finished! Enjoy!")
+
+        Button1.Enabled = True
+        RefreshIndex.Enabled = True
+        RefreshWorlds.Enabled = True
+        deleteButton.Enabled = True
+        launchSMBXButton.Enabled = True
+        feedbackButton.Enabled = True
+        settingsToolStrip.Enabled = True
+        ToolStripProgressBar1.Visible = False
+        isExtract.Visible = False
+
+        ReloadWorldsDir()
+
+
     End Sub
     Private Sub deleteButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteButton.Click
         Dim SelectedWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
         Dim smbxDir As String = settingsIni.ReadValue("settings", "worldlocation")
         'Debugging
-        MsgBox("Going to delete " + vbNewLine + smbxDir + "\" + SelectedWorld)
+        'MsgBox("Going to delete " + vbNewLine + smbxDir + "\" + SelectedWorld)
         My.Computer.FileSystem.DeleteDirectory(smbxDir + "\" + SelectedWorld, FileIO.UIOption.AllDialogs, FileIO.RecycleOption.SendToRecycleBin, FileIO.UICancelOption.DoNothing)
         ReloadWorldsDir()
     End Sub
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles launchSMBXButton.Click
         Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
         If My.Computer.FileSystem.FileExists(smbxexe) = True Then
             Process.Start(smbxexe)
@@ -186,14 +203,31 @@ Public Class MainForm
             MsgBox("Directory not Found!", MsgBoxStyle.Critical)
         End If
     End Sub
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
+    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles feedbackButton.Click
         Dim oForm As New Feedback
         oForm.ShowDialog()
     End Sub
+    Private Sub settingsToolStrip_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles settingsToolStrip.Click
+        Dim oForm As New Settings
+        oForm.ShowDialog()
+    End Sub
+
+
+
+
+
 
     'User generated crap
     '
     '
+    Public Sub CompileSMBXVersions()
+        'ListView1.BeginUpdate()
+        'Dim li As ListViewItem
+        'li = ListView1.Items.Add("SMBX 1.0.0")
+        'li.SubItems.Add("")
+
+
+    End Sub
     Public Sub ReloadWorldsDir()
         If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
             Dim di As New DirectoryInfo(settingsIni.ReadValue("Settings", "worldlocation"))
@@ -221,7 +255,7 @@ Public Class MainForm
         If My.Computer.FileSystem.FileExists(smbxexe) Then
             'GetFileVersionInfo(smbxexe)
             Try
-                ToolStripButton1.ToolTipText = "Launch SMBX " + smbxver
+                launchSMBXButton.ToolTipText = "Launch SMBX " + smbxver
             Catch Ex As Exception
 
             End Try
@@ -278,4 +312,7 @@ Public Class MainForm
         Dim oForm As New UpdatingSmbx
         oForm.ShowDialog()
     End Sub
+
+
+
 End Class

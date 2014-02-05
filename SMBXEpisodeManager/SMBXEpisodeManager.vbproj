@@ -10,7 +10,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>SMBXEpisodeManager.My.MyApplication</StartupObject>
     <RootNamespace>SMBXEpisodeManager</RootNamespace>
-    <AssemblyName>SMBXEpisodeManager</AssemblyName>
+    <AssemblyName>SMBXEpisodeManager_Latest</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>SMBXEpisodeManager.xml</DocumentationFile>
+    <DocumentationFile>SMBXEpisodeManager_Latest.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>SMBXEpisodeManager.xml</DocumentationFile>
+    <DocumentationFile>SMBXEpisodeManager_Latest.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -88,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ExternalClasses\UnzipWorld.vb" />
     <Compile Include="Feedback.Designer.vb">
       <DependentUpon>Feedback.vb</DependentUpon>
     </Compile>
@@ -128,6 +129,12 @@
     <Compile Include="SplashScreen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UnzipProgress.Designer.vb">
+      <DependentUpon>UnzipProgress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UnzipProgress.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UpdateConfirm.Designer.vb">
       <DependentUpon>UpdateConfirm.vb</DependentUpon>
     </Compile>
@@ -160,6 +167,9 @@
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UnzipProgress.resx">
+      <DependentUpon>UnzipProgress.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateConfirm.resx">
       <DependentUpon>UpdateConfirm.vb</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +193,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon_ico.ico" />
+    <None Include="Resources\Backgrond_Secondary.png" />
+    <None Include="Resources\Settings.png" />
     <None Include="Resources\Gnome-view-refresh.png" />
     <None Include="Resources\Gnome-dialog-question.png" />
     <None Include="Resources\AnotherBlock.gif" />
@@ -214,6 +226,7 @@
     <None Include="Resources\background 1.png" />
     <None Include="Resources\Animated-SnowFalling.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

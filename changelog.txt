@@ -1,0 +1,7 @@
+Changelog
+
+-Moved the settings button up to the toolbar
+-Extracting episodes no longer causes the manager to freeze up
+-Stops showing a dialog box when deleting an episode, now just shows the system dialog
+-Shows a progress bar when extracting
+-Added a tab for managing SMBX Versions that is currently w.i.p
