@@ -5,12 +5,12 @@ Imports System.Text
 Imports System.Xml
 Imports System.Xml.Serialization
 Imports Ionic.Zip
-Imports UpdateVB
 Imports Setting.IniFile
 Imports System.Net
 
 Public Class MainForm
-    Public updater As New UpdateVB.UpdateVB
+    Dim NewUpdate As New UpdatingClass
+
     Dim xml As New XDocument
 
     Dim settingsIni As New Setting.IniFile(Environment.CurrentDirectory + "\settings.ini")
@@ -269,31 +269,52 @@ Public Class MainForm
     Public Sub SmbxUpdates()
         Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
         Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
-        If My.Computer.FileSystem.FileExists(smbxexe) Then
-            If smbxver = "1.3" Then
-                Dim oForm As New UpdatingSmbx
-                oForm.ShowDialog()
-                ToolStripLabel1.Visible = True
-            End If
-        ElseIf smbxver = "1.3.0.1" Then
-            'proceed normally
 
-        End If
+        curSMBXLabel.Text = "Current Installed SMBX Version: " + smbxver
+
+
+        'If My.Computer.FileSystem.FileExists(smbxexe) Then
+        ' If smbxver = "1.3" Then
+        ' Dim oForm As New UpdatingSmbx
+        ' oForm.ShowDialog()
+        ' ToolStripLabel1.Visible = True
+        ' End If
+        ' ElseIf smbxver = "1.3.0.1" Then
+        'proceed normally
+
+        ' End If
     End Sub
     Public Sub CheckForUpdates()
         Dim curver As String = My.Application.Info.Version.ToString
-
-        updater.checkinternet()
-        updater.checkversion("http://rohara.x10.mx/smbxpublisher/appfiles/version_smbx_new.txt", curver)
-        'updater.checkversion(Environment.CurrentDirectory + "\newestversion.txt", curver)
-        If updater.updateavailable = True Then
-            My.Computer.Network.DownloadFile("http://rohara.x10.mx/smbxpublisher/appfiles/SMBXUpdater_Latest.exe", Environment.CurrentDirectory + "\Update.exe", "", "", False, "1000", True)
-            Dim oForm As New UpdateConfirm
-            oForm.Owner = Me
-            oForm.ShowDialog()
-        Else
-            isUpdated.Text = "Up to date: " + curver
+        If UpdatingClass.CheckforInternetConnection = True Then
+            If UpdatingClass.CheckVersion("http://rohara.x10.mx/smbxpublisher/appfiles/version_smbx_new.txt", curver) = True Then
+                My.Computer.Network.DownloadFile("http://rohara.x10.mx/smbxpublisher/appfiles/SMBXUpdater_Latest.exe", Environment.CurrentDirectory + "\Update.exe", "", "", False, "1000", True)
+                Dim oForm As New UpdateConfirm
+                oForm.Owner = Me
+                oForm.ShowDialog()
+            Else
+                isUpdated.Text = "Up to date: " + curver
+            End If
+        ElseIf UpdatingClass.CheckforInternetConnection = False Then
+            MsgBox("Cannot update! No internet connection!")
         End If
+
+
+
+
+        '
+        ' Old Update method; for reference only, uses UpdateVB.dll
+        'updater.checkinternet()
+        'updater.checkversion("http://rohara.x10.mx/smbxpublisher/appfiles/version_smbx_new.txt", curver)
+        'updater.checkversion(Environment.CurrentDirectory + "\newestversion.txt", curver)
+        'If updater.updateavailable = True Then
+        'My.Computer.Network.DownloadFile("http://rohara.x10.mx/smbxpublisher/appfiles/SMBXUpdater_Latest.exe", Environment.CurrentDirectory + "\Update.exe", "", "", False, "1000", True)
+        'Dim oForm As New UpdateConfirm
+        'oForm.Owner = Me
+        'oForm.ShowDialog()
+        'Else
+        'isUpdated.Text = "Up to date: " + curver
+        'End If
 
     End Sub
 

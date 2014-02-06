@@ -15,9 +15,11 @@
         'sw.WriteLine("dlServers=pixels")
         If MsgBox("Update complete! Do you wish to launch?", MsgBoxStyle.YesNo, "Update Complete") = DialogResult.Yes Then
             Process.Start(CurrentExe)
+            Me.Close()
         Else
             Me.Close()
         End If
+        Me.Close()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click

@@ -30,6 +30,8 @@ Partial Class MainForm
         Me.feedbackButton = New System.Windows.Forms.ToolStripButton()
         Me.settingsToolStrip = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
+        Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.isExtract = New System.Windows.Forms.ToolStripLabel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.episodeTab = New System.Windows.Forms.TabPage()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -48,9 +50,7 @@ Partial Class MainForm
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.smbxVersionsTab = New System.Windows.Forms.TabPage()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
-        Me.isExtract = New System.Windows.Forms.ToolStripLabel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.curSMBXLabel = New System.Windows.Forms.Label()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -58,7 +58,6 @@ Partial Class MainForm
         CType(Me.IconImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.smbxVersionsTab.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -124,6 +123,20 @@ Partial Class MainForm
         Me.ToolStripLabel1.Size = New System.Drawing.Size(133, 22)
         Me.ToolStripLabel1.Text = "SMBX Update Available!"
         Me.ToolStripLabel1.Visible = False
+        '
+        'ToolStripProgressBar1
+        '
+        Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
+        Me.ToolStripProgressBar1.Size = New System.Drawing.Size(200, 22)
+        Me.ToolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee
+        Me.ToolStripProgressBar1.Visible = False
+        '
+        'isExtract
+        '
+        Me.isExtract.Name = "isExtract"
+        Me.isExtract.Size = New System.Drawing.Size(68, 22)
+        Me.isExtract.Text = "Extracting..."
+        Me.isExtract.Visible = False
         '
         'TabControl1
         '
@@ -297,7 +310,8 @@ Partial Class MainForm
         '
         'smbxVersionsTab
         '
-        Me.smbxVersionsTab.Controls.Add(Me.PictureBox2)
+        Me.smbxVersionsTab.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Backgrond_Secondary
+        Me.smbxVersionsTab.Controls.Add(Me.curSMBXLabel)
         Me.smbxVersionsTab.Location = New System.Drawing.Point(4, 22)
         Me.smbxVersionsTab.Name = "smbxVersionsTab"
         Me.smbxVersionsTab.Padding = New System.Windows.Forms.Padding(3)
@@ -310,28 +324,15 @@ Partial Class MainForm
         'BackgroundWorker1
         '
         '
-        'ToolStripProgressBar1
+        'curSMBXLabel
         '
-        Me.ToolStripProgressBar1.Name = "ToolStripProgressBar1"
-        Me.ToolStripProgressBar1.Size = New System.Drawing.Size(200, 22)
-        Me.ToolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee
-        Me.ToolStripProgressBar1.Visible = False
-        '
-        'isExtract
-        '
-        Me.isExtract.Name = "isExtract"
-        Me.isExtract.Size = New System.Drawing.Size(68, 22)
-        Me.isExtract.Text = "Extracting..."
-        Me.isExtract.Visible = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.LuigiSkid
-        Me.PictureBox2.Location = New System.Drawing.Point(-2, -1)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(568, 522)
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
+        Me.curSMBXLabel.AutoSize = True
+        Me.curSMBXLabel.ForeColor = System.Drawing.Color.White
+        Me.curSMBXLabel.Location = New System.Drawing.Point(8, 441)
+        Me.curSMBXLabel.Name = "curSMBXLabel"
+        Me.curSMBXLabel.Size = New System.Drawing.Size(118, 13)
+        Me.curSMBXLabel.TabIndex = 0
+        Me.curSMBXLabel.Text = "Current SMBX Version: "
         '
         'MainForm
         '
@@ -358,7 +359,7 @@ Partial Class MainForm
         CType(Me.IconImage, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.smbxVersionsTab.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.smbxVersionsTab.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -390,6 +391,6 @@ Partial Class MainForm
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents isExtract As System.Windows.Forms.ToolStripLabel
-    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents curSMBXLabel As System.Windows.Forms.Label
 
 End Class
