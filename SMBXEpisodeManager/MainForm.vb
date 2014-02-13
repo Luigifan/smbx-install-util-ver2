@@ -10,6 +10,8 @@ Imports System.Net
 
 Public Class MainForm
     Dim NewUpdate As New UpdatingClass
+    Dim CheckSMBXVer As New SMBXVersionManaging
+
 
     Dim xml As New XDocument
 
@@ -73,9 +75,19 @@ Public Class MainForm
                 'Continue Normally
             End If
         End If
-        RefreshAllItems()
-        CheckForUpdates()
-        SmbxUpdates()
+        Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
+        
+
+        If My.Computer.FileSystem.FileExists(smbxexe) Then
+            CheckSMBXVer.CheckSMBXVersion()
+            SmbxUpdates()
+            RefreshAllItems()
+            CheckForUpdates()
+        Else
+            RefreshAllItems()
+            CheckForUpdates()
+        End If
+
     End Sub
     Private Sub AvailableEpisodes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AvailableEpisodes.SelectedIndexChanged
         Button1.Enabled = True
@@ -240,26 +252,25 @@ Public Class MainForm
     End Sub
     Public Sub RefreshAllItems()
         Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
-        Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
+        'Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
 
         If pixelsServers = True Then
             xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
         ElseIf pixelsServers = False Then
             xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
         End If
+        Try
+            Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
+            AvailableEpisodes.DataSource = games
+            ReloadWorldsDir()
+        Catch ex As Exception
+            Console.WriteLine("CRITICAL STARTUP ERROR: " + ex.Message)
 
-        Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
-        AvailableEpisodes.DataSource = games
-        ReloadWorldsDir()
+        End Try
+        
 
-        If My.Computer.FileSystem.FileExists(smbxexe) Then
-            'GetFileVersionInfo(smbxexe)
-            Try
-                launchSMBXButton.ToolTipText = "Launch SMBX " + smbxver
-            Catch Ex As Exception
 
-            End Try
-        End If
+        
         'repoUpdated.Text = "Repo Updated"
 
     End Sub
@@ -270,7 +281,14 @@ Public Class MainForm
         Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
         Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
 
-        curSMBXLabel.Text = "Current Installed SMBX Version: " + smbxver
+        If smbxver = "1.2.2" Then
+            curSMBXLabel.Text = "Current Installed SMBX Version: Beta 59"
+        Else
+            curSMBXLabel.Text = "Current Installed SMBX Version: " + smbxver
+        End If
+
+
+
 
 
         'If My.Computer.FileSystem.FileExists(smbxexe) Then
@@ -334,6 +352,32 @@ Public Class MainForm
         oForm.ShowDialog()
     End Sub
 
+    Private Sub smbx1301button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smbx1301button.Click
+        CheckSMBXVer.InstallAnSMBX("1.3.0.1")
 
+    End Sub
 
+    Private Sub smbx121button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smbx121button.Click
+        CheckSMBXVer.InstallAnSMBX("1.2.0.1")
+    End Sub
+
+    Private Sub smbx59button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smbx59button.Click
+        CheckSMBXVer.InstallAnSMBX("59")
+    End Sub
+
+    Private Sub smbx1button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smbx1button.Click
+        CheckSMBXVer.InstallAnSMBX("1.0.0.0")
+    End Sub
+
+    Private Sub LaunchMainGameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LaunchMainGameToolStripMenuItem.Click, launchSMBXSplit.ButtonClick
+        Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
+        Process.Start(smbxexe)
+    End Sub
+
+    Private Sub LaunchEditorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LaunchEditorToolStripMenuItem.Click
+        Dim smbxloc As String = settingsIni.ReadValue("Settings", "smbxpath")
+        Dim smbxeditor As String = "\smbx1editor.exe"
+
+        Process.Start(smbxloc + smbxeditor)
+    End Sub
 End Class

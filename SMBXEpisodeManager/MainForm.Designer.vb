@@ -49,8 +49,23 @@ Partial Class MainForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.smbxVersionsTab = New System.Windows.Forms.TabPage()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.smbx1button = New System.Windows.Forms.Button()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.smbx59button = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.smbx121button = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.smbx1301button = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.curSMBXLabel = New System.Windows.Forms.Label()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.launchSMBXSplit = New System.Windows.Forms.ToolStripSplitButton()
+        Me.LaunchMainGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaunchEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -58,6 +73,10 @@ Partial Class MainForm
         CType(Me.IconImage, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.smbxVersionsTab.SuspendLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -78,7 +97,7 @@ Partial Class MainForm
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.launchSMBXButton, Me.feedbackButton, Me.settingsToolStrip, Me.ToolStripLabel1, Me.ToolStripProgressBar1, Me.isExtract})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.launchSMBXButton, Me.launchSMBXSplit, Me.feedbackButton, Me.settingsToolStrip, Me.ToolStripLabel1, Me.ToolStripProgressBar1, Me.isExtract})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(572, 25)
@@ -88,7 +107,7 @@ Partial Class MainForm
         'launchSMBXButton
         '
         Me.launchSMBXButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.favicon
+        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
         Me.launchSMBXButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.launchSMBXButton.Name = "launchSMBXButton"
         Me.launchSMBXButton.Size = New System.Drawing.Size(23, 22)
@@ -311,6 +330,18 @@ Partial Class MainForm
         'smbxVersionsTab
         '
         Me.smbxVersionsTab.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Backgrond_Secondary
+        Me.smbxVersionsTab.Controls.Add(Me.smbx1button)
+        Me.smbxVersionsTab.Controls.Add(Me.Label8)
+        Me.smbxVersionsTab.Controls.Add(Me.PictureBox5)
+        Me.smbxVersionsTab.Controls.Add(Me.smbx59button)
+        Me.smbxVersionsTab.Controls.Add(Me.Label7)
+        Me.smbxVersionsTab.Controls.Add(Me.PictureBox4)
+        Me.smbxVersionsTab.Controls.Add(Me.smbx121button)
+        Me.smbxVersionsTab.Controls.Add(Me.Label6)
+        Me.smbxVersionsTab.Controls.Add(Me.PictureBox3)
+        Me.smbxVersionsTab.Controls.Add(Me.smbx1301button)
+        Me.smbxVersionsTab.Controls.Add(Me.Label5)
+        Me.smbxVersionsTab.Controls.Add(Me.PictureBox2)
         Me.smbxVersionsTab.Controls.Add(Me.curSMBXLabel)
         Me.smbxVersionsTab.Location = New System.Drawing.Point(4, 22)
         Me.smbxVersionsTab.Name = "smbxVersionsTab"
@@ -321,18 +352,163 @@ Partial Class MainForm
         Me.smbxVersionsTab.ToolTipText = "Download and Manage Additional SMBX Versions from Here"
         Me.smbxVersionsTab.UseVisualStyleBackColor = True
         '
-        'BackgroundWorker1
+        'smbx1button
         '
+        Me.smbx1button.Location = New System.Drawing.Point(204, 249)
+        Me.smbx1button.Name = "smbx1button"
+        Me.smbx1button.Size = New System.Drawing.Size(75, 23)
+        Me.smbx1button.TabIndex = 12
+        Me.smbx1button.Text = "Install"
+        Me.smbx1button.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.White
+        Me.Label8.Location = New System.Drawing.Point(83, 249)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(94, 20)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "SMBX 1.0.0"
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox5.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox5.Location = New System.Drawing.Point(43, 236)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(34, 33)
+        Me.PictureBox5.TabIndex = 10
+        Me.PictureBox5.TabStop = False
+        '
+        'smbx59button
+        '
+        Me.smbx59button.Location = New System.Drawing.Point(204, 205)
+        Me.smbx59button.Name = "smbx59button"
+        Me.smbx59button.Size = New System.Drawing.Size(75, 23)
+        Me.smbx59button.TabIndex = 9
+        Me.smbx59button.Text = "Install"
+        Me.smbx59button.UseVisualStyleBackColor = True
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.White
+        Me.Label7.Location = New System.Drawing.Point(83, 205)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(115, 20)
+        Me.Label7.TabIndex = 8
+        Me.Label7.Text = "SMBX Beta 59"
+        '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox4.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox4.Location = New System.Drawing.Point(43, 192)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(34, 33)
+        Me.PictureBox4.TabIndex = 7
+        Me.PictureBox4.TabStop = False
+        '
+        'smbx121button
+        '
+        Me.smbx121button.Location = New System.Drawing.Point(204, 159)
+        Me.smbx121button.Name = "smbx121button"
+        Me.smbx121button.Size = New System.Drawing.Size(75, 23)
+        Me.smbx121button.TabIndex = 6
+        Me.smbx121button.Text = "Install"
+        Me.smbx121button.UseVisualStyleBackColor = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(83, 159)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(94, 20)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "SMBX 1.2.1"
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox3.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox3.Location = New System.Drawing.Point(43, 146)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(34, 33)
+        Me.PictureBox3.TabIndex = 4
+        Me.PictureBox3.TabStop = False
+        '
+        'smbx1301button
+        '
+        Me.smbx1301button.Location = New System.Drawing.Point(204, 114)
+        Me.smbx1301button.Name = "smbx1301button"
+        Me.smbx1301button.Size = New System.Drawing.Size(75, 23)
+        Me.smbx1301button.TabIndex = 3
+        Me.smbx1301button.Text = "Install"
+        Me.smbx1301button.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(83, 114)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(107, 20)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "SMBX 1.3.0.1"
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox2.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox2.Location = New System.Drawing.Point(43, 101)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(34, 33)
+        Me.PictureBox2.TabIndex = 1
+        Me.PictureBox2.TabStop = False
         '
         'curSMBXLabel
         '
         Me.curSMBXLabel.AutoSize = True
         Me.curSMBXLabel.ForeColor = System.Drawing.Color.White
-        Me.curSMBXLabel.Location = New System.Drawing.Point(8, 441)
+        Me.curSMBXLabel.Location = New System.Drawing.Point(40, 50)
         Me.curSMBXLabel.Name = "curSMBXLabel"
         Me.curSMBXLabel.Size = New System.Drawing.Size(118, 13)
         Me.curSMBXLabel.TabIndex = 0
         Me.curSMBXLabel.Text = "Current SMBX Version: "
+        '
+        'BackgroundWorker1
+        '
+        '
+        'launchSMBXSplit
+        '
+        Me.launchSMBXSplit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.launchSMBXSplit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaunchMainGameToolStripMenuItem, Me.LaunchEditorToolStripMenuItem})
+        Me.launchSMBXSplit.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.launchSMBXSplit.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.launchSMBXSplit.Name = "launchSMBXSplit"
+        Me.launchSMBXSplit.Size = New System.Drawing.Size(32, 22)
+        Me.launchSMBXSplit.Text = "Launch SMBX"
+        Me.launchSMBXSplit.Visible = False
+        '
+        'LaunchMainGameToolStripMenuItem
+        '
+        Me.LaunchMainGameToolStripMenuItem.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.LaunchMainGameToolStripMenuItem.Name = "LaunchMainGameToolStripMenuItem"
+        Me.LaunchMainGameToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.LaunchMainGameToolStripMenuItem.Text = "Launch Main Game"
+        '
+        'LaunchEditorToolStripMenuItem
+        '
+        Me.LaunchEditorToolStripMenuItem.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.LaunchEditorToolStripMenuItem.Name = "LaunchEditorToolStripMenuItem"
+        Me.LaunchEditorToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.LaunchEditorToolStripMenuItem.Text = "Launch Editor"
         '
         'MainForm
         '
@@ -360,6 +536,10 @@ Partial Class MainForm
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.smbxVersionsTab.ResumeLayout(False)
         Me.smbxVersionsTab.PerformLayout()
+        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -392,5 +572,20 @@ Partial Class MainForm
     Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents isExtract As System.Windows.Forms.ToolStripLabel
     Friend WithEvents curSMBXLabel As System.Windows.Forms.Label
+    Friend WithEvents smbx1button As System.Windows.Forms.Button
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
+    Friend WithEvents smbx59button As System.Windows.Forms.Button
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents smbx121button As System.Windows.Forms.Button
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
+    Friend WithEvents smbx1301button As System.Windows.Forms.Button
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents launchSMBXSplit As System.Windows.Forms.ToolStripSplitButton
+    Friend WithEvents LaunchMainGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LaunchEditorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -33,6 +33,7 @@ Partial Class Settings
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ver = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label1
@@ -132,11 +133,22 @@ Partial Class Settings
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Download Servers: "
         '
+        'ver
+        '
+        Me.ver.AutoSize = True
+        Me.ver.ForeColor = System.Drawing.Color.Red
+        Me.ver.Location = New System.Drawing.Point(445, 66)
+        Me.ver.Name = "ver"
+        Me.ver.Size = New System.Drawing.Size(39, 13)
+        Me.ver.TabIndex = 11
+        Me.ver.Text = "Label5"
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(532, 147)
+        Me.Controls.Add(Me.ver)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
@@ -171,4 +183,5 @@ Partial Class Settings
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents ver As System.Windows.Forms.Label
 End Class
