@@ -85,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="ExternalClasses\CheckSMBXVersionInstalled.vb" />
     <Compile Include="ExternalClasses\UnzipWorld.vb" />
     <Compile Include="ExternalClasses\UpdatingClass.vb" />
     <Compile Include="Feedback.Designer.vb">
@@ -193,7 +192,6 @@
   <ItemGroup>
     <Content Include="Icon_ico.ico" />
     <Content Include="Ionic.Zip.dll" />
-    <None Include="Resources\smbx.gif" />
     <Content Include="Setting.dll" />
     <None Include="Resources\Backgrond_Secondary.png" />
     <None Include="Resources\Settings.png" />

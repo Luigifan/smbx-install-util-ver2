@@ -181,6 +181,9 @@
   <data name="FirePeachHold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FirePeachHold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="background 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="snow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,9 +199,6 @@
   <data name="LuigiSkid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LuigiSkid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,13 +208,10 @@
   <data name="Background_Main_Full" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Background_Main_Full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="background 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Backgrond_Secondary" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrond_Secondary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="smbx" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smbx.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

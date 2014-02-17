@@ -67,14 +67,24 @@ Partial Class MainForm
         Me.InstalledWorlds = New System.Windows.Forms.ListBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.deleteButton = New System.Windows.Forms.Button()
+<<<<<<< HEAD
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.epName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Author = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Button2 = New System.Windows.Forms.Button()
+=======
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.smbxVersionsTab = New System.Windows.Forms.TabPage()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.curSMBXLabel = New System.Windows.Forms.Label()
+>>>>>>> parent of 3ffc0e0... 2.2.0.0 Update
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.smbxVersionsTab.SuspendLayout()
+<<<<<<< HEAD
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -85,6 +95,8 @@ Partial Class MainForm
         Me.TabControl1.SuspendLayout()
         Me.installedTab.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+=======
+>>>>>>> parent of 3ffc0e0... 2.2.0.0 Update
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -105,7 +117,7 @@ Partial Class MainForm
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.launchSMBXButton, Me.launchSMBXSplit, Me.feedbackButton, Me.settingsToolStrip, Me.ToolStripLabel1, Me.ToolStripProgressBar1, Me.isExtract})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.launchSMBXButton, Me.feedbackButton, Me.settingsToolStrip, Me.ToolStripLabel1, Me.ToolStripProgressBar1, Me.isExtract})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(572, 25)
@@ -115,7 +127,7 @@ Partial Class MainForm
         'launchSMBXButton
         '
         Me.launchSMBXButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.favicon
         Me.launchSMBXButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.launchSMBXButton.Name = "launchSMBXButton"
         Me.launchSMBXButton.Size = New System.Drawing.Size(23, 22)
@@ -196,18 +208,6 @@ Partial Class MainForm
         'smbxVersionsTab
         '
         Me.smbxVersionsTab.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Backgrond_Secondary
-        Me.smbxVersionsTab.Controls.Add(Me.smbx1button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label8)
-        Me.smbxVersionsTab.Controls.Add(Me.PictureBox5)
-        Me.smbxVersionsTab.Controls.Add(Me.smbx59button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label7)
-        Me.smbxVersionsTab.Controls.Add(Me.PictureBox4)
-        Me.smbxVersionsTab.Controls.Add(Me.smbx121button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label6)
-        Me.smbxVersionsTab.Controls.Add(Me.PictureBox3)
-        Me.smbxVersionsTab.Controls.Add(Me.smbx1301button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label5)
-        Me.smbxVersionsTab.Controls.Add(Me.PictureBox2)
         Me.smbxVersionsTab.Controls.Add(Me.curSMBXLabel)
         Me.smbxVersionsTab.Location = New System.Drawing.Point(4, 22)
         Me.smbxVersionsTab.Name = "smbxVersionsTab"
@@ -218,6 +218,7 @@ Partial Class MainForm
         Me.smbxVersionsTab.ToolTipText = "Download and Manage Additional SMBX Versions from Here"
         Me.smbxVersionsTab.UseVisualStyleBackColor = True
         '
+<<<<<<< HEAD
         'curSMBXLabel
         '
         Me.curSMBXLabel.AutoSize = True
@@ -388,9 +389,14 @@ Partial Class MainForm
         Me.Button1.TabIndex = 8
         Me.Button1.Text = "Install Selected World"
         Me.Button1.UseVisualStyleBackColor = True
+=======
+        'BackgroundWorker1
+        '
+>>>>>>> parent of 3ffc0e0... 2.2.0.0 Update
         '
         'Label2
         '
+<<<<<<< HEAD
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(44, 464)
@@ -570,6 +576,16 @@ Partial Class MainForm
         Me.Button2.Text = "POPULATE"
         Me.Button2.UseVisualStyleBackColor = True
         '
+=======
+        Me.curSMBXLabel.AutoSize = True
+        Me.curSMBXLabel.ForeColor = System.Drawing.Color.White
+        Me.curSMBXLabel.Location = New System.Drawing.Point(8, 441)
+        Me.curSMBXLabel.Name = "curSMBXLabel"
+        Me.curSMBXLabel.Size = New System.Drawing.Size(118, 13)
+        Me.curSMBXLabel.TabIndex = 0
+        Me.curSMBXLabel.Text = "Current SMBX Version: "
+        '
+>>>>>>> parent of 3ffc0e0... 2.2.0.0 Update
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -591,6 +607,7 @@ Partial Class MainForm
         Me.ToolStrip1.PerformLayout()
         Me.smbxVersionsTab.ResumeLayout(False)
         Me.smbxVersionsTab.PerformLayout()
+<<<<<<< HEAD
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -603,6 +620,8 @@ Partial Class MainForm
         Me.installedTab.ResumeLayout(False)
         Me.installedTab.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
+=======
+>>>>>>> parent of 3ffc0e0... 2.2.0.0 Update
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -617,6 +636,7 @@ Partial Class MainForm
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents ToolStripProgressBar1 As System.Windows.Forms.ToolStripProgressBar
     Friend WithEvents isExtract As System.Windows.Forms.ToolStripLabel
+<<<<<<< HEAD
     Friend WithEvents launchSMBXSplit As System.Windows.Forms.ToolStripSplitButton
     Friend WithEvents LaunchMainGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaunchEditorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -656,5 +676,8 @@ Partial Class MainForm
     Friend WithEvents ListView1 As System.Windows.Forms.ListView
     Friend WithEvents epName As System.Windows.Forms.ColumnHeader
     Friend WithEvents Author As System.Windows.Forms.ColumnHeader
+=======
+    Friend WithEvents curSMBXLabel As System.Windows.Forms.Label
+>>>>>>> parent of 3ffc0e0... 2.2.0.0 Update
 
 End Class
