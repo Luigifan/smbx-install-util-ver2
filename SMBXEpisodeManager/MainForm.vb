@@ -110,7 +110,7 @@ Public Class MainForm
         End If
 
     End Sub
-    Private Sub InstalledWorlds_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InstalledWorlds.SelectedIndexChanged
+    Private Sub InstalledWorlds_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         deleteButton.Enabled = True
         Dim SelectWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
     End Sub
@@ -177,7 +177,7 @@ Public Class MainForm
 
 
     End Sub
-    Private Sub deleteButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteButton.Click
+    Private Sub deleteButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim SelectedWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
         Dim smbxDir As String = settingsIni.ReadValue("settings", "worldlocation")
         'Debugging
@@ -205,7 +205,7 @@ Public Class MainForm
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
     End Sub
-    Private Sub RefreshWorlds_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshWorlds.Click
+    Private Sub RefreshWorlds_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
             Dim di As New DirectoryInfo(settingsIni.ReadValue("Settings", "worldlocation"))
             Dim subdi As DirectoryInfo() = di.GetDirectories()
@@ -274,6 +274,48 @@ Public Class MainForm
         'repoUpdated.Text = "Repo Updated"
 
     End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Dim node() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
+        Dim nodes As XElement = xml...<episode>.First(Function(n) n.Value) '= AvailableEpisodes.Text)
+
+
+        For Each game In node
+
+            Dim lvi As ListViewItem
+
+            Dim s As String = game.ToString()
+            Dim arr As Char() = s.ToCharArray
+
+
+            Dim lviTest As New ListViewItem
+            lviTest.Text = arr
+
+
+            ListView1.Items.Add(lviTest)
+
+
+        Next
+
+        For Each authorString In node
+
+            Dim lvi As ListViewItem
+            Dim s As String = nodes.@Author.ToString()
+            Dim arr As Char() = s.ToCharArray
+
+
+            Dim lviTest As New ListViewItem
+            lviTest.SubItems.Add(arr)
+
+
+
+            ListView1.Items.Add(lviTest)
+
+
+        Next
+
+    End Sub
+
     Private Function GetFileVersionInfo(ByVal filename As String) As Version
         Return Version.Parse(FileVersionInfo.GetVersionInfo(filename).FileVersion)
     End Function
@@ -380,4 +422,6 @@ Public Class MainForm
 
         Process.Start(smbxloc + smbxeditor)
     End Sub
+
+    
 End Class
