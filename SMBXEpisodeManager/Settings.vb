@@ -13,6 +13,15 @@ Public Class Settings
             'RadioButton1.Checked = False
             RadioButton2.Checked = True
         End If
+
+        If My.Computer.FileSystem.FileExists(execDir.Text) Then
+            ver.Text = "SMBX " + GetFileVersionInfo(execDir.Text).ToString
+
+            ver.ForeColor = Color.Green
+        Else
+            ver.Text = "SMBX not found!"
+            ver.ForeColor = System.Drawing.Color.Red
+        End If
     End Sub
 
     Public Sub SaveSettings()
@@ -48,4 +57,8 @@ Public Class Settings
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         SaveSettings()
     End Sub
+
+    Private Function GetFileVersionInfo(ByVal filename As String) As Version
+        Return Version.Parse(FileVersionInfo.GetVersionInfo(filename).FileVersion)
+    End Function
 End Class

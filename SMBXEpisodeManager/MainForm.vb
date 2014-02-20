@@ -10,6 +10,8 @@ Imports System.Net
 
 Public Class MainForm
     Dim NewUpdate As New UpdatingClass
+    Dim CheckSMBXVer As New SMBXVersionManaging
+
 
     Dim xml As New XDocument
 
@@ -73,9 +75,19 @@ Public Class MainForm
                 'Continue Normally
             End If
         End If
-        RefreshAllItems()
-        CheckForUpdates()
-        SmbxUpdates()
+        Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
+        
+
+        If My.Computer.FileSystem.FileExists(smbxexe) Then
+            CheckSMBXVer.CheckSMBXVersion()
+            SmbxUpdates()
+            RefreshAllItems()
+            CheckForUpdates()
+        Else
+            RefreshAllItems()
+            CheckForUpdates()
+        End If
+
     End Sub
     Private Sub AvailableEpisodes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AvailableEpisodes.SelectedIndexChanged
         Button1.Enabled = True
@@ -98,7 +110,7 @@ Public Class MainForm
         End If
 
     End Sub
-    Private Sub InstalledWorlds_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub InstalledWorlds_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InstalledWorlds.SelectedIndexChanged
         deleteButton.Enabled = True
         Dim SelectWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
     End Sub
@@ -165,7 +177,7 @@ Public Class MainForm
 
 
     End Sub
-    Private Sub deleteButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub deleteButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles deleteButton.Click
         Dim SelectedWorld As String = CStr(InstalledWorlds.SelectedItem.ToString)
         Dim smbxDir As String = settingsIni.ReadValue("settings", "worldlocation")
         'Debugging
@@ -193,7 +205,7 @@ Public Class MainForm
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
     End Sub
-    Private Sub RefreshWorlds_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub RefreshWorlds_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshWorlds.Click
         If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
             Dim di As New DirectoryInfo(settingsIni.ReadValue("Settings", "worldlocation"))
             Dim subdi As DirectoryInfo() = di.GetDirectories()
@@ -240,71 +252,28 @@ Public Class MainForm
     End Sub
     Public Sub RefreshAllItems()
         Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
-        Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
+        'Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
 
         If pixelsServers = True Then
             xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
         ElseIf pixelsServers = False Then
             xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
         End If
+        Try
+            Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
+            AvailableEpisodes.DataSource = games
+            ReloadWorldsDir()
+        Catch ex As Exception
+            Console.WriteLine("CRITICAL STARTUP ERROR: " + ex.Message)
 
-        Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
-        AvailableEpisodes.DataSource = games
-        ReloadWorldsDir()
+        End Try
+        
 
-        If My.Computer.FileSystem.FileExists(smbxexe) Then
-            'GetFileVersionInfo(smbxexe)
-            Try
-                launchSMBXButton.ToolTipText = "Launch SMBX " + smbxver
-            Catch Ex As Exception
 
-            End Try
-        End If
+        
         'repoUpdated.Text = "Repo Updated"
 
     End Sub
-
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        Dim node() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
-        Dim nodes As XElement = xml...<episode>.First(Function(n) n.Value) '= AvailableEpisodes.Text)
-
-
-        For Each game In node
-
-            Dim lvi As ListViewItem
-
-            Dim s As String = game.ToString()
-            Dim arr As Char() = s.ToCharArray
-
-
-            Dim lviTest As New ListViewItem
-            lviTest.Text = arr
-
-
-            ListView1.Items.Add(lviTest)
-
-
-        Next
-
-        For Each authorString In node
-
-            Dim lvi As ListViewItem
-            Dim s As String = nodes.@Author.ToString()
-            Dim arr As Char() = s.ToCharArray
-
-
-            Dim lviTest As New ListViewItem
-            lviTest.SubItems.Add(arr)
-
-
-
-            ListView1.Items.Add(lviTest)
-
-
-        Next
-
-    End Sub
-
     Private Function GetFileVersionInfo(ByVal filename As String) As Version
         Return Version.Parse(FileVersionInfo.GetVersionInfo(filename).FileVersion)
     End Function
@@ -312,7 +281,14 @@ Public Class MainForm
         Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
         Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
 
-        curSMBXLabel.Text = "Current Installed SMBX Version: " + smbxver
+        If smbxver = "1.2.2" Then
+            curSMBXLabel.Text = "Current Installed SMBX Version: Beta 59"
+        Else
+            curSMBXLabel.Text = "Current Installed SMBX Version: " + smbxver
+        End If
+
+
+
 
 
         'If My.Computer.FileSystem.FileExists(smbxexe) Then
@@ -376,9 +352,15 @@ Public Class MainForm
         oForm.ShowDialog()
     End Sub
 
+    Private Sub smbx1301button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smbx1301button.Click
+        CheckSMBXVer.InstallAnSMBX("1.3.0.1")
 
+    End Sub
 
-<<<<<<< HEAD
+    Private Sub smbx121button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smbx121button.Click
+        CheckSMBXVer.InstallAnSMBX("1.2.0.1")
+    End Sub
+
     Private Sub smbx59button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles smbx59button.Click
         CheckSMBXVer.InstallAnSMBX("59")
     End Sub
@@ -398,8 +380,4 @@ Public Class MainForm
 
         Process.Start(smbxloc + smbxeditor)
     End Sub
-
-    
-=======
->>>>>>> parent of 3ffc0e0... 2.2.0.0 Update
 End Class
