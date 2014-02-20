@@ -14,6 +14,13 @@ Public Class Settings
             RadioButton2.Checked = True
         End If
 
+        If settingsIni.ReadValue("Settings", "Theme") = "smb" Then
+            smbRadio.Checked = True
+        ElseIf settingsIni.ReadValue("Settings", "Theme") = "windows" Then
+            wfRadio.Checked = True
+
+        End If
+
         If My.Computer.FileSystem.FileExists(execDir.Text) Then
             ver.Text = "SMBX " + GetFileVersionInfo(execDir.Text).ToString
 
@@ -36,8 +43,15 @@ Public Class Settings
             settingsIni.WriteValue("Settings", "dlServers", "mike")
             MsgBox("Warning! Mike's servers still use Pixels' to download as of right now." + vbNewLine + "And sometimes it can be out of date. Proceed with caution")
         End If
+
+        If smbRadio.Checked = True Then
+            settingsIni.WriteValue("Settings", "Theme", "smb")
+        ElseIf wfRadio.Checked = True Then
+            settingsIni.WriteValue("Settings", "Theme", "windows")
+        End If
         MainForm.RefreshAllItems()
         MainForm.ReloadWorldsDir()
+        MainForm.CheckTheme()
         Me.Close()
     End Sub
 

@@ -34,12 +34,17 @@ Partial Class Settings
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ver = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.smbRadio = New System.Windows.Forms.RadioButton()
+        Me.wfRadio = New System.Windows.Forms.RadioButton()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(32, 36)
+        Me.Label1.Location = New System.Drawing.Point(35, 13)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(88, 13)
         Me.Label1.TabIndex = 0
@@ -47,14 +52,14 @@ Partial Class Settings
         '
         'smbxDir
         '
-        Me.smbxDir.Location = New System.Drawing.Point(129, 33)
+        Me.smbxDir.Location = New System.Drawing.Point(129, 10)
         Me.smbxDir.Name = "smbxDir"
         Me.smbxDir.Size = New System.Drawing.Size(311, 20)
         Me.smbxDir.TabIndex = 1
         '
         'worldsDir
         '
-        Me.worldsDir.Location = New System.Drawing.Point(129, 60)
+        Me.worldsDir.Location = New System.Drawing.Point(129, 37)
         Me.worldsDir.Name = "worldsDir"
         Me.worldsDir.Size = New System.Drawing.Size(311, 20)
         Me.worldsDir.TabIndex = 3
@@ -62,7 +67,7 @@ Partial Class Settings
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(32, 63)
+        Me.Label2.Location = New System.Drawing.Point(32, 40)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(91, 13)
         Me.Label2.TabIndex = 2
@@ -70,7 +75,7 @@ Partial Class Settings
         '
         'execDir
         '
-        Me.execDir.Location = New System.Drawing.Point(129, 88)
+        Me.execDir.Location = New System.Drawing.Point(129, 65)
         Me.execDir.Name = "execDir"
         Me.execDir.Size = New System.Drawing.Size(311, 20)
         Me.execDir.TabIndex = 5
@@ -78,7 +83,7 @@ Partial Class Settings
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 91)
+        Me.Label3.Location = New System.Drawing.Point(12, 65)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(111, 13)
         Me.Label3.TabIndex = 4
@@ -86,7 +91,7 @@ Partial Class Settings
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(446, 31)
+        Me.Button1.Location = New System.Drawing.Point(446, 8)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 6
@@ -95,9 +100,10 @@ Partial Class Settings
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(416, 118)
+        Me.Button2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Button2.Location = New System.Drawing.Point(0, 161)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(104, 23)
+        Me.Button2.Size = New System.Drawing.Size(532, 23)
         Me.Button2.TabIndex = 7
         Me.Button2.Text = "Save All Settings"
         Me.Button2.UseVisualStyleBackColor = True
@@ -106,7 +112,7 @@ Partial Class Settings
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(129, 118)
+        Me.RadioButton1.Location = New System.Drawing.Point(129, 94)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(52, 17)
         Me.RadioButton1.TabIndex = 8
@@ -117,7 +123,7 @@ Partial Class Settings
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(187, 118)
+        Me.RadioButton2.Location = New System.Drawing.Point(187, 94)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(55, 17)
         Me.RadioButton2.TabIndex = 9
@@ -127,7 +133,7 @@ Partial Class Settings
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(20, 120)
+        Me.Label4.Location = New System.Drawing.Point(23, 96)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(100, 13)
         Me.Label4.TabIndex = 10
@@ -137,17 +143,60 @@ Partial Class Settings
         '
         Me.ver.AutoSize = True
         Me.ver.ForeColor = System.Drawing.Color.Red
-        Me.ver.Location = New System.Drawing.Point(445, 66)
+        Me.ver.Location = New System.Drawing.Point(445, 43)
         Me.ver.Name = "ver"
         Me.ver.Size = New System.Drawing.Size(39, 13)
         Me.ver.TabIndex = 11
         Me.ver.Text = "Label5"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(35, 16)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(81, 13)
+        Me.Label5.TabIndex = 12
+        Me.Label5.Text = "Look and Feel: "
+        '
+        'smbRadio
+        '
+        Me.smbRadio.AutoSize = True
+        Me.smbRadio.Checked = True
+        Me.smbRadio.Location = New System.Drawing.Point(122, 16)
+        Me.smbRadio.Name = "smbRadio"
+        Me.smbRadio.Size = New System.Drawing.Size(82, 17)
+        Me.smbRadio.TabIndex = 13
+        Me.smbRadio.TabStop = True
+        Me.smbRadio.Text = "Super Mario"
+        Me.smbRadio.UseVisualStyleBackColor = True
+        '
+        'wfRadio
+        '
+        Me.wfRadio.AutoSize = True
+        Me.wfRadio.Location = New System.Drawing.Point(210, 16)
+        Me.wfRadio.Name = "wfRadio"
+        Me.wfRadio.Size = New System.Drawing.Size(100, 17)
+        Me.wfRadio.TabIndex = 14
+        Me.wfRadio.Text = "Windows Forms"
+        Me.wfRadio.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.wfRadio)
+        Me.GroupBox1.Controls.Add(Me.smbRadio)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 113)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(532, 59)
+        Me.GroupBox1.TabIndex = 15
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Look and Feel"
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(532, 147)
+        Me.ClientSize = New System.Drawing.Size(532, 184)
         Me.Controls.Add(Me.ver)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.RadioButton2)
@@ -160,6 +209,7 @@ Partial Class Settings
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.smbxDir)
         Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -168,6 +218,8 @@ Partial Class Settings
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Settings"
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -184,4 +236,8 @@ Partial Class Settings
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ver As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents smbRadio As System.Windows.Forms.RadioButton
+    Friend WithEvents wfRadio As System.Windows.Forms.RadioButton
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
 End Class

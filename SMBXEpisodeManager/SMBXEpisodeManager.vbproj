@@ -194,6 +194,7 @@
     <Content Include="Icon_ico.ico" />
     <Content Include="Ionic.Zip.dll" />
     <None Include="Resources\smbx.gif" />
+    <None Include="Resources\smbx.png" />
     <Content Include="Setting.dll" />
     <None Include="Resources\Backgrond_Secondary.png" />
     <None Include="Resources\Settings.png" />

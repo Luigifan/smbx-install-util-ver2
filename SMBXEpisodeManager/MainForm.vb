@@ -87,7 +87,7 @@ Public Class MainForm
             RefreshAllItems()
             CheckForUpdates()
         End If
-
+        CheckTheme()
     End Sub
     Private Sub AvailableEpisodes_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AvailableEpisodes.SelectedIndexChanged
         Button1.Enabled = True
@@ -237,9 +237,32 @@ Public Class MainForm
         'Dim li As ListViewItem
         'li = ListView1.Items.Add("SMBX 1.0.0")
         'li.SubItems.Add("")
-
-
     End Sub
+    Public Sub CheckTheme()
+        Try
+            If settingsIni.ReadValue("Settings", "Theme") = "smb" Then
+                'BackgrondSecondary
+                episodeTab.BackgroundImage = My.Resources.Background_Main_Full
+                smbxVersionsTab.BackgroundImage = My.Resources.Backgrond_Secondary
+            ElseIf settingsIni.ReadValue("Settings", "Theme") = "windows" Then
+                episodeTab.BackgroundImage = Nothing
+                smbxVersionsTab.BackgroundImage = Nothing
+                curSMBXLabel.ForeColor = Color.Black
+                Label100.ForeColor = Color.Black
+                Label121.ForeColor = Color.Black
+                Label1301.ForeColor = Color.Black
+                Label59.ForeColor = Color.Black
+
+            ElseIf settingsIni.ReadValue("Settings", "Theme") = vbNull Then
+                settingsIni.WriteValue("Settings", "Theme", "smb")
+                CheckTheme()
+            End If
+        Catch ex As Exception
+            Console.WriteLine("ERROR: " + ex.Message)
+
+        End Try
+    End Sub
+
     Public Sub ReloadWorldsDir()
         If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
             Dim di As New DirectoryInfo(settingsIni.ReadValue("Settings", "worldlocation"))

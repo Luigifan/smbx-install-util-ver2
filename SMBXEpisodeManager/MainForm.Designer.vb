@@ -26,13 +26,11 @@ Partial Class MainForm
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.isUpdated = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.launchSMBXButton = New System.Windows.Forms.ToolStripButton()
-        Me.feedbackButton = New System.Windows.Forms.ToolStripButton()
-        Me.settingsToolStrip = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.isExtract = New System.Windows.Forms.ToolStripLabel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.episodeTab = New System.Windows.Forms.TabPage()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.RefreshWorlds = New System.Windows.Forms.Button()
@@ -50,22 +48,24 @@ Partial Class MainForm
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.smbxVersionsTab = New System.Windows.Forms.TabPage()
         Me.smbx1button = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label100 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.smbx59button = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label59 = New System.Windows.Forms.Label()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.smbx121button = New System.Windows.Forms.Button()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label121 = New System.Windows.Forms.Label()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.smbx1301button = New System.Windows.Forms.Button()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label1301 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.curSMBXLabel = New System.Windows.Forms.Label()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.launchSMBXButton = New System.Windows.Forms.ToolStripButton()
         Me.launchSMBXSplit = New System.Windows.Forms.ToolStripSplitButton()
         Me.LaunchMainGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaunchEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.feedbackButton = New System.Windows.Forms.ToolStripButton()
+        Me.settingsToolStrip = New System.Windows.Forms.ToolStripButton()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -104,36 +104,6 @@ Partial Class MainForm
         Me.ToolStrip1.TabIndex = 14
         Me.ToolStrip1.Text = "ToolStrip1"
         '
-        'launchSMBXButton
-        '
-        Me.launchSMBXButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
-        Me.launchSMBXButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.launchSMBXButton.Name = "launchSMBXButton"
-        Me.launchSMBXButton.Size = New System.Drawing.Size(23, 22)
-        Me.launchSMBXButton.Text = "Launch SMBX"
-        '
-        'feedbackButton
-        '
-        Me.feedbackButton.BackColor = System.Drawing.Color.Transparent
-        Me.feedbackButton.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
-        Me.feedbackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.feedbackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.feedbackButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
-        Me.feedbackButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.feedbackButton.Name = "feedbackButton"
-        Me.feedbackButton.Size = New System.Drawing.Size(23, 22)
-        Me.feedbackButton.Text = "Submit Feedback on the Program from Here"
-        '
-        'settingsToolStrip
-        '
-        Me.settingsToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.settingsToolStrip.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Settings
-        Me.settingsToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.settingsToolStrip.Name = "settingsToolStrip"
-        Me.settingsToolStrip.Size = New System.Drawing.Size(23, 22)
-        Me.settingsToolStrip.Text = "Program Settings"
-        '
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.IsLink = True
@@ -168,6 +138,9 @@ Partial Class MainForm
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(572, 547)
         Me.TabControl1.TabIndex = 17
+        '
+        'BackgroundWorker1
+        '
         '
         'episodeTab
         '
@@ -331,16 +304,16 @@ Partial Class MainForm
         '
         Me.smbxVersionsTab.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Backgrond_Secondary
         Me.smbxVersionsTab.Controls.Add(Me.smbx1button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label8)
+        Me.smbxVersionsTab.Controls.Add(Me.Label100)
         Me.smbxVersionsTab.Controls.Add(Me.PictureBox5)
         Me.smbxVersionsTab.Controls.Add(Me.smbx59button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label7)
+        Me.smbxVersionsTab.Controls.Add(Me.Label59)
         Me.smbxVersionsTab.Controls.Add(Me.PictureBox4)
         Me.smbxVersionsTab.Controls.Add(Me.smbx121button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label6)
+        Me.smbxVersionsTab.Controls.Add(Me.Label121)
         Me.smbxVersionsTab.Controls.Add(Me.PictureBox3)
         Me.smbxVersionsTab.Controls.Add(Me.smbx1301button)
-        Me.smbxVersionsTab.Controls.Add(Me.Label5)
+        Me.smbxVersionsTab.Controls.Add(Me.Label1301)
         Me.smbxVersionsTab.Controls.Add(Me.PictureBox2)
         Me.smbxVersionsTab.Controls.Add(Me.curSMBXLabel)
         Me.smbxVersionsTab.Location = New System.Drawing.Point(4, 22)
@@ -361,21 +334,21 @@ Partial Class MainForm
         Me.smbx1button.Text = "Install"
         Me.smbx1button.UseVisualStyleBackColor = True
         '
-        'Label8
+        'Label100
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(83, 249)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(94, 20)
-        Me.Label8.TabIndex = 11
-        Me.Label8.Text = "SMBX 1.0.0"
+        Me.Label100.AutoSize = True
+        Me.Label100.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label100.ForeColor = System.Drawing.Color.White
+        Me.Label100.Location = New System.Drawing.Point(83, 249)
+        Me.Label100.Name = "Label100"
+        Me.Label100.Size = New System.Drawing.Size(94, 20)
+        Me.Label100.TabIndex = 11
+        Me.Label100.Text = "SMBX 1.0.0"
         '
         'PictureBox5
         '
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox5.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), System.Drawing.Image)
         Me.PictureBox5.Location = New System.Drawing.Point(43, 236)
         Me.PictureBox5.Name = "PictureBox5"
         Me.PictureBox5.Size = New System.Drawing.Size(34, 33)
@@ -391,21 +364,21 @@ Partial Class MainForm
         Me.smbx59button.Text = "Install"
         Me.smbx59button.UseVisualStyleBackColor = True
         '
-        'Label7
+        'Label59
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(83, 205)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(115, 20)
-        Me.Label7.TabIndex = 8
-        Me.Label7.Text = "SMBX Beta 59"
+        Me.Label59.AutoSize = True
+        Me.Label59.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label59.ForeColor = System.Drawing.Color.White
+        Me.Label59.Location = New System.Drawing.Point(83, 205)
+        Me.Label59.Name = "Label59"
+        Me.Label59.Size = New System.Drawing.Size(115, 20)
+        Me.Label59.TabIndex = 8
+        Me.Label59.Text = "SMBX Beta 59"
         '
         'PictureBox4
         '
         Me.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox4.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
         Me.PictureBox4.Location = New System.Drawing.Point(43, 192)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(34, 33)
@@ -421,21 +394,21 @@ Partial Class MainForm
         Me.smbx121button.Text = "Install"
         Me.smbx121button.UseVisualStyleBackColor = True
         '
-        'Label6
+        'Label121
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.White
-        Me.Label6.Location = New System.Drawing.Point(83, 159)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(94, 20)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "SMBX 1.2.1"
+        Me.Label121.AutoSize = True
+        Me.Label121.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label121.ForeColor = System.Drawing.Color.White
+        Me.Label121.Location = New System.Drawing.Point(83, 159)
+        Me.Label121.Name = "Label121"
+        Me.Label121.Size = New System.Drawing.Size(94, 20)
+        Me.Label121.TabIndex = 5
+        Me.Label121.Text = "SMBX 1.2.1"
         '
         'PictureBox3
         '
         Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox3.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
         Me.PictureBox3.Location = New System.Drawing.Point(43, 146)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(34, 33)
@@ -451,21 +424,21 @@ Partial Class MainForm
         Me.smbx1301button.Text = "Install"
         Me.smbx1301button.UseVisualStyleBackColor = True
         '
-        'Label5
+        'Label1301
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(83, 114)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(107, 20)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "SMBX 1.3.0.1"
+        Me.Label1301.AutoSize = True
+        Me.Label1301.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1301.ForeColor = System.Drawing.Color.White
+        Me.Label1301.Location = New System.Drawing.Point(83, 114)
+        Me.Label1301.Name = "Label1301"
+        Me.Label1301.Size = New System.Drawing.Size(107, 20)
+        Me.Label1301.TabIndex = 2
+        Me.Label1301.Text = "SMBX 1.3.0.1"
         '
         'PictureBox2
         '
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
         Me.PictureBox2.Location = New System.Drawing.Point(43, 101)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(34, 33)
@@ -482,14 +455,20 @@ Partial Class MainForm
         Me.curSMBXLabel.TabIndex = 0
         Me.curSMBXLabel.Text = "Current SMBX Version: "
         '
-        'BackgroundWorker1
+        'launchSMBXButton
         '
+        Me.launchSMBXButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx1
+        Me.launchSMBXButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.launchSMBXButton.Name = "launchSMBXButton"
+        Me.launchSMBXButton.Size = New System.Drawing.Size(23, 22)
+        Me.launchSMBXButton.Text = "Launch SMBX"
         '
         'launchSMBXSplit
         '
         Me.launchSMBXSplit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.launchSMBXSplit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaunchMainGameToolStripMenuItem, Me.LaunchEditorToolStripMenuItem})
-        Me.launchSMBXSplit.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.launchSMBXSplit.Image = CType(resources.GetObject("launchSMBXSplit.Image"), System.Drawing.Image)
         Me.launchSMBXSplit.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.launchSMBXSplit.Name = "launchSMBXSplit"
         Me.launchSMBXSplit.Size = New System.Drawing.Size(32, 22)
@@ -498,17 +477,38 @@ Partial Class MainForm
         '
         'LaunchMainGameToolStripMenuItem
         '
-        Me.LaunchMainGameToolStripMenuItem.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.LaunchMainGameToolStripMenuItem.Image = CType(resources.GetObject("LaunchMainGameToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LaunchMainGameToolStripMenuItem.Name = "LaunchMainGameToolStripMenuItem"
         Me.LaunchMainGameToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.LaunchMainGameToolStripMenuItem.Text = "Launch Main Game"
         '
         'LaunchEditorToolStripMenuItem
         '
-        Me.LaunchEditorToolStripMenuItem.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx
+        Me.LaunchEditorToolStripMenuItem.Image = CType(resources.GetObject("LaunchEditorToolStripMenuItem.Image"), System.Drawing.Image)
         Me.LaunchEditorToolStripMenuItem.Name = "LaunchEditorToolStripMenuItem"
         Me.LaunchEditorToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
         Me.LaunchEditorToolStripMenuItem.Text = "Launch Editor"
+        '
+        'feedbackButton
+        '
+        Me.feedbackButton.BackColor = System.Drawing.Color.Transparent
+        Me.feedbackButton.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
+        Me.feedbackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.feedbackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.feedbackButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
+        Me.feedbackButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.feedbackButton.Name = "feedbackButton"
+        Me.feedbackButton.Size = New System.Drawing.Size(23, 22)
+        Me.feedbackButton.Text = "Submit Feedback on the Program from Here"
+        '
+        'settingsToolStrip
+        '
+        Me.settingsToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.settingsToolStrip.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Settings
+        Me.settingsToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.settingsToolStrip.Name = "settingsToolStrip"
+        Me.settingsToolStrip.Size = New System.Drawing.Size(23, 22)
+        Me.settingsToolStrip.Text = "Program Settings"
         '
         'MainForm
         '
@@ -573,16 +573,16 @@ Partial Class MainForm
     Friend WithEvents isExtract As System.Windows.Forms.ToolStripLabel
     Friend WithEvents curSMBXLabel As System.Windows.Forms.Label
     Friend WithEvents smbx1button As System.Windows.Forms.Button
-    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label100 As System.Windows.Forms.Label
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents smbx59button As System.Windows.Forms.Button
-    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label59 As System.Windows.Forms.Label
     Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
     Friend WithEvents smbx121button As System.Windows.Forms.Button
-    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label121 As System.Windows.Forms.Label
     Friend WithEvents PictureBox3 As System.Windows.Forms.PictureBox
     Friend WithEvents smbx1301button As System.Windows.Forms.Button
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label1301 As System.Windows.Forms.Label
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents launchSMBXSplit As System.Windows.Forms.ToolStripSplitButton
     Friend WithEvents LaunchMainGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
