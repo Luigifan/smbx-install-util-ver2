@@ -75,4 +75,15 @@ Public Class Settings
     Private Function GetFileVersionInfo(ByVal filename As String) As Version
         Return Version.Parse(FileVersionInfo.GetVersionInfo(filename).FileVersion)
     End Function
+
+    Private Sub execDir_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles execDir.TextChanged
+        If My.Computer.FileSystem.FileExists(execDir.Text) Then
+            ver.Text = "SMBX " + GetFileVersionInfo(execDir.Text).ToString
+
+            ver.ForeColor = Color.Green
+        Else
+            ver.Text = "SMBX not found!"
+            ver.ForeColor = System.Drawing.Color.Red
+        End If
+    End Sub
 End Class

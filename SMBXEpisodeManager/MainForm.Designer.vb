@@ -26,11 +26,17 @@ Partial Class MainForm
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.isUpdated = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
+        Me.launchSMBXButton = New System.Windows.Forms.ToolStripButton()
+        Me.launchSMBXSplit = New System.Windows.Forms.ToolStripSplitButton()
+        Me.LaunchMainGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaunchEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.feedbackButton = New System.Windows.Forms.ToolStripButton()
+        Me.settingsToolStrip = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.isExtract = New System.Windows.Forms.ToolStripLabel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.episodeTab = New System.Windows.Forms.TabPage()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.RefreshWorlds = New System.Windows.Forms.Button()
@@ -60,12 +66,7 @@ Partial Class MainForm
         Me.Label1301 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.curSMBXLabel = New System.Windows.Forms.Label()
-        Me.launchSMBXButton = New System.Windows.Forms.ToolStripButton()
-        Me.launchSMBXSplit = New System.Windows.Forms.ToolStripSplitButton()
-        Me.LaunchMainGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LaunchEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.feedbackButton = New System.Windows.Forms.ToolStripButton()
-        Me.settingsToolStrip = New System.Windows.Forms.ToolStripButton()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.StatusStrip1.SuspendLayout()
         Me.ToolStrip1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -97,12 +98,76 @@ Partial Class MainForm
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.launchSMBXButton, Me.launchSMBXSplit, Me.feedbackButton, Me.settingsToolStrip, Me.ToolStripLabel1, Me.ToolStripProgressBar1, Me.isExtract})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.launchSMBXButton, Me.launchSMBXSplit, Me.feedbackButton, Me.ToolStripButton1, Me.settingsToolStrip, Me.ToolStripLabel1, Me.ToolStripProgressBar1, Me.isExtract})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 0)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(572, 25)
         Me.ToolStrip1.TabIndex = 14
         Me.ToolStrip1.Text = "ToolStrip1"
+        '
+        'launchSMBXButton
+        '
+        Me.launchSMBXButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx1
+        Me.launchSMBXButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.launchSMBXButton.Name = "launchSMBXButton"
+        Me.launchSMBXButton.Size = New System.Drawing.Size(23, 22)
+        Me.launchSMBXButton.Text = "Launch SMBX"
+        '
+        'launchSMBXSplit
+        '
+        Me.launchSMBXSplit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.launchSMBXSplit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaunchMainGameToolStripMenuItem, Me.LaunchEditorToolStripMenuItem})
+        Me.launchSMBXSplit.Image = CType(resources.GetObject("launchSMBXSplit.Image"), System.Drawing.Image)
+        Me.launchSMBXSplit.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.launchSMBXSplit.Name = "launchSMBXSplit"
+        Me.launchSMBXSplit.Size = New System.Drawing.Size(32, 22)
+        Me.launchSMBXSplit.Text = "Launch SMBX"
+        Me.launchSMBXSplit.Visible = False
+        '
+        'LaunchMainGameToolStripMenuItem
+        '
+        Me.LaunchMainGameToolStripMenuItem.Image = CType(resources.GetObject("LaunchMainGameToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LaunchMainGameToolStripMenuItem.Name = "LaunchMainGameToolStripMenuItem"
+        Me.LaunchMainGameToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.LaunchMainGameToolStripMenuItem.Text = "Launch Main Game"
+        '
+        'LaunchEditorToolStripMenuItem
+        '
+        Me.LaunchEditorToolStripMenuItem.Image = CType(resources.GetObject("LaunchEditorToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.LaunchEditorToolStripMenuItem.Name = "LaunchEditorToolStripMenuItem"
+        Me.LaunchEditorToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
+        Me.LaunchEditorToolStripMenuItem.Text = "Launch Editor"
+        '
+        'feedbackButton
+        '
+        Me.feedbackButton.BackColor = System.Drawing.Color.Transparent
+        Me.feedbackButton.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
+        Me.feedbackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.feedbackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.feedbackButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
+        Me.feedbackButton.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.feedbackButton.Name = "feedbackButton"
+        Me.feedbackButton.Size = New System.Drawing.Size(23, 22)
+        Me.feedbackButton.Text = "Submit Feedback on the Program from Here"
+        '
+        'settingsToolStrip
+        '
+        Me.settingsToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.settingsToolStrip.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Settings
+        Me.settingsToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.settingsToolStrip.Name = "settingsToolStrip"
+        Me.settingsToolStrip.Size = New System.Drawing.Size(23, 22)
+        Me.settingsToolStrip.Text = "Program Settings"
+        '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
+        Me.ToolStripButton1.Text = "Submit new SMBX Episode"
         '
         'ToolStripLabel1
         '
@@ -138,9 +203,6 @@ Partial Class MainForm
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(572, 547)
         Me.TabControl1.TabIndex = 17
-        '
-        'BackgroundWorker1
-        '
         '
         'episodeTab
         '
@@ -455,60 +517,8 @@ Partial Class MainForm
         Me.curSMBXLabel.TabIndex = 0
         Me.curSMBXLabel.Text = "Current SMBX Version: "
         '
-        'launchSMBXButton
+        'BackgroundWorker1
         '
-        Me.launchSMBXButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.launchSMBXButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.smbx1
-        Me.launchSMBXButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.launchSMBXButton.Name = "launchSMBXButton"
-        Me.launchSMBXButton.Size = New System.Drawing.Size(23, 22)
-        Me.launchSMBXButton.Text = "Launch SMBX"
-        '
-        'launchSMBXSplit
-        '
-        Me.launchSMBXSplit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.launchSMBXSplit.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaunchMainGameToolStripMenuItem, Me.LaunchEditorToolStripMenuItem})
-        Me.launchSMBXSplit.Image = CType(resources.GetObject("launchSMBXSplit.Image"), System.Drawing.Image)
-        Me.launchSMBXSplit.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.launchSMBXSplit.Name = "launchSMBXSplit"
-        Me.launchSMBXSplit.Size = New System.Drawing.Size(32, 22)
-        Me.launchSMBXSplit.Text = "Launch SMBX"
-        Me.launchSMBXSplit.Visible = False
-        '
-        'LaunchMainGameToolStripMenuItem
-        '
-        Me.LaunchMainGameToolStripMenuItem.Image = CType(resources.GetObject("LaunchMainGameToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.LaunchMainGameToolStripMenuItem.Name = "LaunchMainGameToolStripMenuItem"
-        Me.LaunchMainGameToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
-        Me.LaunchMainGameToolStripMenuItem.Text = "Launch Main Game"
-        '
-        'LaunchEditorToolStripMenuItem
-        '
-        Me.LaunchEditorToolStripMenuItem.Image = CType(resources.GetObject("LaunchEditorToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.LaunchEditorToolStripMenuItem.Name = "LaunchEditorToolStripMenuItem"
-        Me.LaunchEditorToolStripMenuItem.Size = New System.Drawing.Size(177, 22)
-        Me.LaunchEditorToolStripMenuItem.Text = "Launch Editor"
-        '
-        'feedbackButton
-        '
-        Me.feedbackButton.BackColor = System.Drawing.Color.Transparent
-        Me.feedbackButton.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
-        Me.feedbackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.feedbackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.feedbackButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
-        Me.feedbackButton.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.feedbackButton.Name = "feedbackButton"
-        Me.feedbackButton.Size = New System.Drawing.Size(23, 22)
-        Me.feedbackButton.Text = "Submit Feedback on the Program from Here"
-        '
-        'settingsToolStrip
-        '
-        Me.settingsToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.settingsToolStrip.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Settings
-        Me.settingsToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.settingsToolStrip.Name = "settingsToolStrip"
-        Me.settingsToolStrip.Size = New System.Drawing.Size(23, 22)
-        Me.settingsToolStrip.Text = "Program Settings"
         '
         'MainForm
         '
@@ -587,5 +597,6 @@ Partial Class MainForm
     Friend WithEvents launchSMBXSplit As System.Windows.Forms.ToolStripSplitButton
     Friend WithEvents LaunchMainGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaunchEditorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
 
 End Class

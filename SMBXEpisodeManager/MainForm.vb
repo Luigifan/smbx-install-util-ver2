@@ -76,7 +76,7 @@ Public Class MainForm
             End If
         End If
         Dim smbxexe As String = settingsIni.ReadValue("Settings", "executableloc")
-        
+
 
         If My.Computer.FileSystem.FileExists(smbxexe) Then
             CheckSMBXVer.CheckSMBXVersion()
@@ -123,7 +123,7 @@ Public Class MainForm
             MsgBox("You can't download a seperator!")
         Else
             MsgBox("Episode will be downloaded and saved to " + settingsIni.ReadValue("Settings", "worldlocation"))
-            
+
             My.Computer.Network.DownloadFile(generatedDownloadLink, settingsIni.ReadValue("Settings", "worldlocation") + "\downloaded.zip", "", "", True, 30, True, FileIO.UICancelOption.DoNothing)
 
             Button1.Enabled = False
@@ -136,7 +136,7 @@ Public Class MainForm
             ToolStripProgressBar1.Visible = True
             isExtract.Visible = True
             BackgroundWorker1.RunWorkerAsync()
-            
+
 
 
 
@@ -244,6 +244,11 @@ Public Class MainForm
                 'BackgrondSecondary
                 episodeTab.BackgroundImage = My.Resources.Background_Main_Full
                 smbxVersionsTab.BackgroundImage = My.Resources.Backgrond_Secondary
+                curSMBXLabel.ForeColor = Color.White
+                Label100.ForeColor = Color.White
+                Label121.ForeColor = Color.White
+                Label1301.ForeColor = Color.White
+                Label59.ForeColor = Color.White
             ElseIf settingsIni.ReadValue("Settings", "Theme") = "windows" Then
                 episodeTab.BackgroundImage = Nothing
                 smbxVersionsTab.BackgroundImage = Nothing
@@ -290,10 +295,10 @@ Public Class MainForm
             Console.WriteLine("CRITICAL STARTUP ERROR: " + ex.Message)
 
         End Try
-        
 
 
-        
+
+
         'repoUpdated.Text = "Repo Updated"
 
     End Sub
@@ -402,5 +407,11 @@ Public Class MainForm
         Dim smbxeditor As String = "\smbx1editor.exe"
 
         Process.Start(smbxloc + smbxeditor)
+    End Sub
+
+    Private Sub ToolStripButton1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+        Dim oForm As New XMLMain
+        oForm.ShowDialog()
+
     End Sub
 End Class

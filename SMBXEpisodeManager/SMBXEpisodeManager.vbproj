@@ -128,6 +128,18 @@
     <Compile Include="SplashScreen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Submission\Help.Designer.vb">
+      <DependentUpon>Help.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Submission\Help.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Submission\XMLMain.Designer.vb">
+      <DependentUpon>XMLMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Submission\XMLMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UnzipProgress.Designer.vb">
       <DependentUpon>UnzipProgress.vb</DependentUpon>
     </Compile>
@@ -165,6 +177,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Submission\Help.resx">
+      <DependentUpon>Help.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Submission\XMLMain.resx">
+      <DependentUpon>XMLMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UnzipProgress.resx">
       <DependentUpon>UnzipProgress.vb</DependentUpon>

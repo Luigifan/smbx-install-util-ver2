@@ -38,7 +38,9 @@ Partial Class Settings
         Me.smbRadio = New System.Windows.Forms.RadioButton()
         Me.wfRadio = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -101,7 +103,7 @@ Partial Class Settings
         'Button2
         '
         Me.Button2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Button2.Location = New System.Drawing.Point(0, 161)
+        Me.Button2.Location = New System.Drawing.Point(0, 216)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(532, 23)
         Me.Button2.TabIndex = 7
@@ -112,7 +114,7 @@ Partial Class Settings
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(129, 94)
+        Me.RadioButton1.Location = New System.Drawing.Point(122, 27)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(52, 17)
         Me.RadioButton1.TabIndex = 8
@@ -123,7 +125,7 @@ Partial Class Settings
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(187, 94)
+        Me.RadioButton2.Location = New System.Drawing.Point(180, 27)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(55, 17)
         Me.RadioButton2.TabIndex = 9
@@ -133,7 +135,7 @@ Partial Class Settings
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(23, 96)
+        Me.Label4.Location = New System.Drawing.Point(16, 29)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(100, 13)
         Me.Label4.TabIndex = 10
@@ -143,7 +145,7 @@ Partial Class Settings
         '
         Me.ver.AutoSize = True
         Me.ver.ForeColor = System.Drawing.Color.Red
-        Me.ver.Location = New System.Drawing.Point(445, 43)
+        Me.ver.Location = New System.Drawing.Point(446, 68)
         Me.ver.Name = "ver"
         Me.ver.Size = New System.Drawing.Size(39, 13)
         Me.ver.TabIndex = 11
@@ -185,22 +187,31 @@ Partial Class Settings
         Me.GroupBox1.Controls.Add(Me.wfRadio)
         Me.GroupBox1.Controls.Add(Me.smbRadio)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 113)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 151)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(532, 59)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Look and Feel"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label4)
+        Me.GroupBox2.Controls.Add(Me.RadioButton2)
+        Me.GroupBox2.Controls.Add(Me.RadioButton1)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 92)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(532, 61)
+        Me.GroupBox2.TabIndex = 16
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Servers"
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(532, 184)
+        Me.ClientSize = New System.Drawing.Size(532, 239)
         Me.Controls.Add(Me.ver)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.execDir)
@@ -210,6 +221,7 @@ Partial Class Settings
         Me.Controls.Add(Me.smbxDir)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -220,6 +232,8 @@ Partial Class Settings
         Me.Text = "Settings"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -240,4 +254,5 @@ Partial Class Settings
     Friend WithEvents smbRadio As System.Windows.Forms.RadioButton
     Friend WithEvents wfRadio As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
 End Class
