@@ -66,6 +66,7 @@ Public Class MainForm
             sw.WriteLine("worldlocation=C:\SMBX\worlds")
             sw.WriteLine("executableloc=C:\SMBX\smbx.exe")
             sw.WriteLine("dlServers=pixels")
+            sw.WriteLine("Theme=smb")
             sw.Close()
             If firstRun = "True" Then
                 MsgBox("Hi! I see this is your first run!" & vbNewLine & "Please go to Settings and configure your SMBX directories")
@@ -204,6 +205,7 @@ Public Class MainForm
 
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
+        AvailableEpisodes.SelectedIndex = AvailableEpisodes.SelectedIndex + 1
     End Sub
     Private Sub RefreshWorlds_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshWorlds.Click
         If My.Computer.FileSystem.DirectoryExists(settingsIni.ReadValue("Settings", "worldlocation")) Then
@@ -295,6 +297,10 @@ Public Class MainForm
             Console.WriteLine("CRITICAL STARTUP ERROR: " + ex.Message)
 
         End Try
+
+        AvailableEpisodes.SelectedIndex = AvailableEpisodes.SelectedIndex + 1
+
+
 
 
 
@@ -412,6 +418,10 @@ Public Class MainForm
     Private Sub ToolStripButton1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
         Dim oForm As New XMLMain
         oForm.ShowDialog()
+
+    End Sub
+
+    Private Sub curSMBXLabel_Click(sender As Object, e As EventArgs) Handles curSMBXLabel.Click
 
     End Sub
 End Class

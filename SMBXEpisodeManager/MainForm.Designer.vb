@@ -31,8 +31,8 @@ Partial Class MainForm
         Me.LaunchMainGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaunchEditorToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.feedbackButton = New System.Windows.Forms.ToolStripButton()
-        Me.settingsToolStrip = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.settingsToolStrip = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ToolStripProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
         Me.isExtract = New System.Windows.Forms.ToolStripLabel()
@@ -151,15 +151,6 @@ Partial Class MainForm
         Me.feedbackButton.Size = New System.Drawing.Size(23, 22)
         Me.feedbackButton.Text = "Submit Feedback on the Program from Here"
         '
-        'settingsToolStrip
-        '
-        Me.settingsToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.settingsToolStrip.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Settings
-        Me.settingsToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.settingsToolStrip.Name = "settingsToolStrip"
-        Me.settingsToolStrip.Size = New System.Drawing.Size(23, 22)
-        Me.settingsToolStrip.Text = "Program Settings"
-        '
         'ToolStripButton1
         '
         Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -168,6 +159,15 @@ Partial Class MainForm
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton1.Text = "Submit new SMBX Episode"
+        '
+        'settingsToolStrip
+        '
+        Me.settingsToolStrip.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.settingsToolStrip.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Settings
+        Me.settingsToolStrip.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.settingsToolStrip.Name = "settingsToolStrip"
+        Me.settingsToolStrip.Size = New System.Drawing.Size(23, 22)
+        Me.settingsToolStrip.Text = "Program Settings"
         '
         'ToolStripLabel1
         '

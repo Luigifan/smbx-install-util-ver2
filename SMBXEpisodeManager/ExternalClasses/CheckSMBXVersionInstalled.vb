@@ -96,13 +96,17 @@ Public Class SMBXVersionManaging
 
         If ver = "1.3.0.1" Then
             My.Computer.Network.DownloadFile(smbx131, smbxexe, vbNull, vbNull, True, 10000, True, FileIO.UICancelOption.DoNothing)
+            MainForm.SmbxUpdates()
         ElseIf ver = "1.2.0.1" Then
             My.Computer.Network.DownloadFile(smbx121, smbxexe, vbNull, vbNull, True, 10000, True, FileIO.UICancelOption.DoNothing)
+            MainForm.SmbxUpdates()
         ElseIf ver = "59" Then
             My.Computer.Network.DownloadFile(smbx59, smbxexe, vbNull, vbNull, True, 10000, True, FileIO.UICancelOption.DoNothing)
+            MainForm.SmbxUpdates()
         ElseIf ver = "1.0.0.0" Then
             My.Computer.Network.DownloadFile(smbx1main, smbxexe, vbNull, vbNull, True, 10000, True, FileIO.UICancelOption.DoNothing)
             My.Computer.Network.DownloadFile(smbx1edit, smbxpath + "\smbx1editor.exe", vbNull, vbNull, True, 10000, True, FileIO.UICancelOption.DoNothing)
+            MainForm.SmbxUpdates()
         End If
 
         MsgBox("Successfully installed SMBX " + ver)
