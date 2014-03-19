@@ -4,14 +4,14 @@ Imports System.IO
 Public Class UpdateConfirm
 
     Private Sub UpdateConfirm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Dim address2 As String = "http://rohara.x10.mx/smbxpublisher/appfiles/version_smbx_new.txt"
+        Dim address2 As String = "http://mrmiketheripper.x10.mx/epmanager/version.txt"
         'Dim address2 As String = Environment.CurrentDirectory + "\newestversion.txt"
         Dim client2 As WebClient = New WebClient()
         Dim newversion As StreamReader = New StreamReader(client2.OpenRead(address2))
         Dim versionreader As String
         versionreader = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "\version.txt")
 
-        Dim address As String = "http://rohara.x10.mx/smbxpublisher/appfiles/changelog_smbx.rtf"
+        Dim address As String = "http://mrmiketheripper.x10.mx/epmanager/changelog.rtf"
         'Dim client As WebClient = New WebClient()
         'Dim changelog As StreamReader = New StreamReader(client.OpenRead(address))
         My.Computer.Network.DownloadFile(address, Environment.CurrentDirectory + "\changelog.rtf", vbNull, vbNull, False, 99999, True)

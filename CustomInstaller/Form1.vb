@@ -8,10 +8,10 @@ Public Class Form1
     Public desktopDir As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
 
     Public smbxDownload As String = "http://download2119.mediafire.com/ur6842czlbfg/rlk94bj611e7ga2/SMBX+1.3.0.1.zip"
-    Public episodeManagerExe As String = "http://rohara.x10.mx/smbxpublisher/appfiles/SMBXEpisodeManager_Latest.exe"
-    Public UpdateVbDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/UpdateVB.dll"
-    Public settingDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/Setting.dll"
-    Public ionicZipDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/Ionic.Zip.dll"
+    Public episodeManagerExe As String = "http://mrmiketheripper.x10.mx/epmanager/SMBXUpdater_Latest.exe"
+    'Public UpdateVbDll As String = "http://rohara.x10.mx/smbxpublisher/appfiles/UpdateVB.dll"
+    Public settingDll As String = "http://mrmiketheripper.x10.mx/epmanager/Setting.dll"
+    Public ionicZipDll As String = "http://mrmiketheripper.x10.mx/epmanager/Ionic.Zip.dll"
     Public Event FormClosing As FormClosingEventHandler
 
 
@@ -75,8 +75,8 @@ Public Class Form1
             TextBox1.AppendText("Downloading " + episodeManagerExe + "to " + installDir + "\SMBXEpisodeManager.exe" + vbNewLine)
             My.Computer.Network.DownloadFile(episodeManagerExe, installDir + "\SMBXEpisodeManager.exe", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
             '
-            TextBox1.AppendText("Downloading " + UpdateVbDll + "to " + installDir + "\UpdateVB.dll" + vbNewLine)
-            My.Computer.Network.DownloadFile(UpdateVbDll, installDir + "\UpdateVB.dll", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
+            'TextBox1.AppendText("Downloading " + UpdateVbDll + "to " + installDir + "\UpdateVB.dll" + vbNewLine)
+            'My.Computer.Network.DownloadFile(UpdateVbDll, installDir + "\UpdateVB.dll", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
             '
             TextBox1.AppendText("Downloading " + settingDll + "to " + installDir + "\Setting.dll" + vbNewLine)
             My.Computer.Network.DownloadFile(settingDll, installDir + "\Setting.dll", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
@@ -118,8 +118,8 @@ Public Class Form1
             TextBox1.AppendText("Downloading " + episodeManagerExe + "to " + installDir + "\SMBXEpisodeManager.exe" + vbNewLine)
             My.Computer.Network.DownloadFile(episodeManagerExe, installDir + "\SMBXEpisodeManager.exe", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
             '
-            TextBox1.AppendText("Downloading " + UpdateVbDll + "to " + installDir + "\UpdateVB.dll" + vbNewLine)
-            My.Computer.Network.DownloadFile(UpdateVbDll, installDir + "\UpdateVB.dll", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
+            'TextBox1.AppendText("Downloading " + UpdateVbDll + "to " + installDir + "\UpdateVB.dll" + vbNewLine)
+            'My.Computer.Network.DownloadFile(UpdateVbDll, installDir + "\UpdateVB.dll", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)
             '
             TextBox1.AppendText("Downloading " + settingDll + "to " + installDir + "\Setting.dll" + vbNewLine)
             My.Computer.Network.DownloadFile(settingDll, installDir + "\Setting.dll", vbNull, vbNull, True, vbNull, True, FileIO.UICancelOption.DoNothing)

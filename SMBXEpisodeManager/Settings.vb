@@ -7,7 +7,7 @@ Public Class Settings
         worldsDir.Text = settingsIni.ReadValue("Settings", "worldlocation")
         execDir.Text = settingsIni.ReadValue("Settings", "executableloc")
         If settingsIni.ReadValue("Settings", "dlServers") = "pixels" Then
-            RadioButton1.Checked = True
+            'RadioButton1.Checked = True
             'RadioButton2.Checked = False
         ElseIf settingsIni.ReadValue("Settings", "dlServer") = "mike" Then
             'RadioButton1.Checked = False
@@ -37,12 +37,12 @@ Public Class Settings
         settingsIni.WriteValue("Settings", "smbxpath", smbxDir.Text)
         settingsIni.WriteValue("Settings", "worldlocation", worldsDir.Text)
         settingsIni.WriteValue("Settings", "executableloc", execDir.Text)
-        If RadioButton1.Checked = True Then
-            settingsIni.WriteValue("Settings", "dlServers", "pixels")
-        ElseIf RadioButton2.Checked = True Then
-            settingsIni.WriteValue("Settings", "dlServers", "mike")
-            MsgBox("Warning! Mike's servers still use Pixels' to download as of right now." + vbNewLine + "And sometimes it can be out of date. Proceed with caution")
-        End If
+        'If RadioButton1.Checked = True Then
+        'settingsIni.WriteValue("Settings", "dlServers", "pixels")
+        'ElseIf RadioButton2.Checked = True Then
+        settingsIni.WriteValue("Settings", "dlServers", "mike")
+        'MsgBox("Warning! Mike's servers still use Pixels' to download as of right now." + vbNewLine + "And sometimes it can be out of date. Proceed with caution")
+        'End If
 
         If smbRadio.Checked = True Then
             settingsIni.WriteValue("Settings", "Theme", "smb")

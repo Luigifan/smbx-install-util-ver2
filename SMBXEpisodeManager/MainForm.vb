@@ -18,7 +18,7 @@ Public Class MainForm
     Dim settingsIni As New Setting.IniFile(Environment.CurrentDirectory + "\settings.ini")
     Dim generatedDownloadLink As String = "null"
     Dim generatedTechName As String = "null"
-    Dim pixelsServers As Boolean = True
+    Dim pixelsServers As Boolean = False
 
 
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -80,8 +80,8 @@ Public Class MainForm
 
 
         If My.Computer.FileSystem.FileExists(smbxexe) Then
-            CheckSMBXVer.CheckSMBXVersion()
-            SmbxUpdates()
+            'CheckSMBXVer.CheckSMBXVersion()
+            'SmbxUpdates()
             RefreshAllItems()
             CheckForUpdates()
         Else
@@ -98,7 +98,7 @@ Public Class MainForm
         generatedDownloadLink = node.@DownloadLink
         generatedTechName = node.@TechName
         If node.@IconLoc = "null" Then
-            IconImage.ImageLocation = "http://rohara.x10.mx/smbxpublisher/appfiles/NOICON.gif"
+            IconImage.ImageLocation = "http://mrmiketheripper.x10.mx/epmanager/noicon.gif"
         Else
             IconImage.ImageLocation = node.@IconLoc
         End If
@@ -198,7 +198,7 @@ Public Class MainForm
     End Sub
     Private Sub RefreshIndex_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RefreshIndex.Click
         If pixelsServers = True Then
-            xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
+            xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
         ElseIf pixelsServers = False Then
             xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
         End If
@@ -285,7 +285,7 @@ Public Class MainForm
         'Dim smbxver As String = GetFileVersionInfo(smbxexe).ToString
 
         If pixelsServers = True Then
-            xml = XDocument.Load("http://rohara.x10.mx/smbxpublisher/appfiles/worldIndex.xml")
+            xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
         ElseIf pixelsServers = False Then
             xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
         End If
@@ -339,8 +339,8 @@ Public Class MainForm
     Public Sub CheckForUpdates()
         Dim curver As String = My.Application.Info.Version.ToString
         If UpdatingClass.CheckforInternetConnection = True Then
-            If UpdatingClass.CheckVersion("http://rohara.x10.mx/smbxpublisher/appfiles/version_smbx_new.txt", curver) = True Then
-                My.Computer.Network.DownloadFile("http://rohara.x10.mx/smbxpublisher/appfiles/SMBXUpdater_Latest.exe", Environment.CurrentDirectory + "\Update.exe", "", "", False, "1000", True)
+            If UpdatingClass.CheckVersion("http://mrmiketheripper.x10.mx/epmanager/version.txt", curver) = True Then
+                My.Computer.Network.DownloadFile("http://mrmiketheripper.x10.mx/epmanager/SMBXUpdater_Latest.exe", Environment.CurrentDirectory + "\Update.exe", "", "", False, "1000", True)
                 Dim oForm As New UpdateConfirm
                 oForm.Owner = Me
                 oForm.ShowDialog()

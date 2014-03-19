@@ -71,16 +71,18 @@ Partial Class Form1
         'smbx
         '
         Me.smbx.AutoSize = True
-        Me.smbx.Location = New System.Drawing.Point(125, 97)
+        Me.smbx.Enabled = False
+        Me.smbx.Location = New System.Drawing.Point(12, 5)
         Me.smbx.Name = "smbx"
         Me.smbx.Size = New System.Drawing.Size(126, 17)
         Me.smbx.TabIndex = 3
         Me.smbx.Text = "SMBX 1.3.0.1 (New!)"
         Me.smbx.UseVisualStyleBackColor = True
+        Me.smbx.Visible = False
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(372, 97)
+        Me.Button1.Location = New System.Drawing.Point(373, 86)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 4
@@ -89,7 +91,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(454, 97)
+        Me.Button2.Location = New System.Drawing.Point(454, 86)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
         Me.Button2.TabIndex = 5
@@ -137,7 +139,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 126)
+        Me.ClientSize = New System.Drawing.Size(535, 121)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.extractProgressBar)
         Me.Controls.Add(Me.Label3)

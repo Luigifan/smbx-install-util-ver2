@@ -53,6 +53,7 @@ Partial Class MainForm
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.smbxVersionsTab = New System.Windows.Forms.TabPage()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.smbx1button = New System.Windows.Forms.Button()
         Me.Label100 = New System.Windows.Forms.Label()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -142,9 +143,9 @@ Partial Class MainForm
         'feedbackButton
         '
         Me.feedbackButton.BackColor = System.Drawing.Color.Transparent
-        Me.feedbackButton.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
         Me.feedbackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.feedbackButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.feedbackButton.Enabled = False
         Me.feedbackButton.Image = Global.SMBXEpisodeManager.My.Resources.Resources.Gnome_dialog_question
         Me.feedbackButton.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.feedbackButton.Name = "feedbackButton"
@@ -273,17 +274,17 @@ Partial Class MainForm
         'AvailableEpisodes
         '
         Me.AvailableEpisodes.FormattingEnabled = True
-        Me.AvailableEpisodes.Location = New System.Drawing.Point(14, 22)
+        Me.AvailableEpisodes.Location = New System.Drawing.Point(8, 22)
         Me.AvailableEpisodes.Name = "AvailableEpisodes"
-        Me.AvailableEpisodes.Size = New System.Drawing.Size(227, 277)
+        Me.AvailableEpisodes.Size = New System.Drawing.Size(252, 277)
         Me.AvailableEpisodes.TabIndex = 0
         '
         'InstalledWorlds
         '
         Me.InstalledWorlds.FormattingEnabled = True
-        Me.InstalledWorlds.Location = New System.Drawing.Point(247, 22)
+        Me.InstalledWorlds.Location = New System.Drawing.Point(266, 22)
         Me.InstalledWorlds.Name = "InstalledWorlds"
-        Me.InstalledWorlds.Size = New System.Drawing.Size(319, 277)
+        Me.InstalledWorlds.Size = New System.Drawing.Size(290, 277)
         Me.InstalledWorlds.TabIndex = 1
         '
         'DescriptionTextBox
@@ -300,7 +301,7 @@ Partial Class MainForm
         '
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(244, 3)
+        Me.Label4.Location = New System.Drawing.Point(263, 3)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(90, 13)
         Me.Label4.TabIndex = 11
@@ -365,6 +366,7 @@ Partial Class MainForm
         'smbxVersionsTab
         '
         Me.smbxVersionsTab.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Backgrond_Secondary
+        Me.smbxVersionsTab.Controls.Add(Me.Label5)
         Me.smbxVersionsTab.Controls.Add(Me.smbx1button)
         Me.smbxVersionsTab.Controls.Add(Me.Label100)
         Me.smbxVersionsTab.Controls.Add(Me.PictureBox5)
@@ -387,8 +389,20 @@ Partial Class MainForm
         Me.smbxVersionsTab.ToolTipText = "Download and Manage Additional SMBX Versions from Here"
         Me.smbxVersionsTab.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(38, 311)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(454, 50)
+        Me.Label5.TabIndex = 13
+        Me.Label5.Text = "Currently unavailable. " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Please see official forum post for more details."
+        '
         'smbx1button
         '
+        Me.smbx1button.Enabled = False
         Me.smbx1button.Location = New System.Drawing.Point(204, 249)
         Me.smbx1button.Name = "smbx1button"
         Me.smbx1button.Size = New System.Drawing.Size(75, 23)
@@ -419,6 +433,7 @@ Partial Class MainForm
         '
         'smbx59button
         '
+        Me.smbx59button.Enabled = False
         Me.smbx59button.Location = New System.Drawing.Point(204, 205)
         Me.smbx59button.Name = "smbx59button"
         Me.smbx59button.Size = New System.Drawing.Size(75, 23)
@@ -449,6 +464,7 @@ Partial Class MainForm
         '
         'smbx121button
         '
+        Me.smbx121button.Enabled = False
         Me.smbx121button.Location = New System.Drawing.Point(204, 159)
         Me.smbx121button.Name = "smbx121button"
         Me.smbx121button.Size = New System.Drawing.Size(75, 23)
@@ -479,6 +495,7 @@ Partial Class MainForm
         '
         'smbx1301button
         '
+        Me.smbx1301button.Enabled = False
         Me.smbx1301button.Location = New System.Drawing.Point(204, 114)
         Me.smbx1301button.Name = "smbx1301button"
         Me.smbx1301button.Size = New System.Drawing.Size(75, 23)
@@ -528,6 +545,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.StatusStrip1)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
@@ -598,5 +616,6 @@ Partial Class MainForm
     Friend WithEvents LaunchMainGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaunchEditorToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 
 End Class
