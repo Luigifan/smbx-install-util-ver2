@@ -30,7 +30,7 @@ Partial Class Settings
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.mikesIndexRbutton = New System.Windows.Forms.RadioButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.ver = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -38,6 +38,8 @@ Partial Class Settings
         Me.wfRadio = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.customIndexRbutton = New System.Windows.Forms.RadioButton()
+        Me.customIndexTb = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -60,10 +62,10 @@ Partial Class Settings
         '
         'worldsDir
         '
-        Me.worldsDir.Location = New System.Drawing.Point(129, 37)
+        Me.worldsDir.Location = New System.Drawing.Point(129, 39)
         Me.worldsDir.Name = "worldsDir"
         Me.worldsDir.Size = New System.Drawing.Size(311, 20)
-        Me.worldsDir.TabIndex = 3
+        Me.worldsDir.TabIndex = 2
         '
         'Label2
         '
@@ -79,7 +81,7 @@ Partial Class Settings
         Me.execDir.Location = New System.Drawing.Point(129, 65)
         Me.execDir.Name = "execDir"
         Me.execDir.Size = New System.Drawing.Size(311, 20)
-        Me.execDir.TabIndex = 5
+        Me.execDir.TabIndex = 3
         '
         'Label3
         '
@@ -109,18 +111,17 @@ Partial Class Settings
         Me.Button2.Text = "Save All Settings"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'RadioButton2
+        'mikesIndexRbutton
         '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Checked = True
-        Me.RadioButton2.Enabled = False
-        Me.RadioButton2.Location = New System.Drawing.Point(122, 27)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(55, 17)
-        Me.RadioButton2.TabIndex = 9
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "Mike's"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.mikesIndexRbutton.AutoSize = True
+        Me.mikesIndexRbutton.Checked = True
+        Me.mikesIndexRbutton.Location = New System.Drawing.Point(122, 27)
+        Me.mikesIndexRbutton.Name = "mikesIndexRbutton"
+        Me.mikesIndexRbutton.Size = New System.Drawing.Size(55, 17)
+        Me.mikesIndexRbutton.TabIndex = 9
+        Me.mikesIndexRbutton.TabStop = True
+        Me.mikesIndexRbutton.Text = "Mike's"
+        Me.mikesIndexRbutton.UseVisualStyleBackColor = True
         '
         'Label4
         '
@@ -186,14 +187,35 @@ Partial Class Settings
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.customIndexTb)
+        Me.GroupBox2.Controls.Add(Me.customIndexRbutton)
         Me.GroupBox2.Controls.Add(Me.Label4)
-        Me.GroupBox2.Controls.Add(Me.RadioButton2)
+        Me.GroupBox2.Controls.Add(Me.mikesIndexRbutton)
         Me.GroupBox2.Location = New System.Drawing.Point(0, 92)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(532, 61)
         Me.GroupBox2.TabIndex = 16
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Servers"
+        '
+        'customIndexRbutton
+        '
+        Me.customIndexRbutton.AutoSize = True
+        Me.customIndexRbutton.Location = New System.Drawing.Point(183, 27)
+        Me.customIndexRbutton.Name = "customIndexRbutton"
+        Me.customIndexRbutton.Size = New System.Drawing.Size(89, 17)
+        Me.customIndexRbutton.TabIndex = 11
+        Me.customIndexRbutton.TabStop = True
+        Me.customIndexRbutton.Text = "Custom Index"
+        Me.customIndexRbutton.UseVisualStyleBackColor = True
+        '
+        'customIndexTb
+        '
+        Me.customIndexTb.Enabled = False
+        Me.customIndexTb.Location = New System.Drawing.Point(280, 27)
+        Me.customIndexTb.Name = "customIndexTb"
+        Me.customIndexTb.Size = New System.Drawing.Size(241, 20)
+        Me.customIndexTb.TabIndex = 12
         '
         'Settings
         '
@@ -235,7 +257,7 @@ Partial Class Settings
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents mikesIndexRbutton As System.Windows.Forms.RadioButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents ver As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -243,4 +265,6 @@ Partial Class Settings
     Friend WithEvents wfRadio As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
+    Friend WithEvents customIndexRbutton As System.Windows.Forms.RadioButton
+    Friend WithEvents customIndexTb As System.Windows.Forms.TextBox
 End Class

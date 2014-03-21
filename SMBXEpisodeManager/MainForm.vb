@@ -20,8 +20,18 @@ Public Class MainForm
     Dim generatedTechName As String = "null"
     Dim pixelsServers As Boolean = False
 
-
+    Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            Dim cp = MyBase.CreateParams
+            cp.ExStyle = cp.ExStyle Or &H2000000
+            ' Turn on WS_EX_COMPOSITED
+            Return cp
+        End Get
+    End Property
     Private Sub MainForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        SetDoubleBuffered(Me)
+        Me.SetStyle(ControlStyles.AllPaintingInWmPaint, True)
+
         Control.CheckForIllegalCrossThreadCalls = False
         Dim firstRun As String
         firstRun = settingsIni.ReadValue("Settings", "isFirstRun")
@@ -80,8 +90,8 @@ Public Class MainForm
 
 
         If My.Computer.FileSystem.FileExists(smbxexe) Then
-            'CheckSMBXVer.CheckSMBXVersion()
-            'SmbxUpdates()
+            CheckSMBXVer.CheckSMBXVersion()
+            SmbxUpdates()
             RefreshAllItems()
             CheckForUpdates()
         Else
@@ -202,7 +212,16 @@ Public Class MainForm
         ElseIf pixelsServers = False Then
             xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
         End If
-
+        Dim index As String = settingsIni.ReadValue("Settings", "dlServers")
+        If index = "mike" Then
+            xml = XDocument.Load("https://dl.dropboxusercontent.com/u/62304851/worldIndex.xml")
+        Else
+            Try
+                xml = XDocument.Load(index)
+            Catch ex As Exception
+                MsgBox("There was in error in reading the custom XML!" + vbNewLine + ex.Message)
+            End Try
+        End If
         Dim games() As String = xml...<episode>.Select(Function(n) n.Value).ToArray
         AvailableEpisodes.DataSource = games
         AvailableEpisodes.SelectedIndex = AvailableEpisodes.SelectedIndex + 1
@@ -234,6 +253,17 @@ Public Class MainForm
     'User generated crap
     '
     '
+    Public Shared Sub SetDoubleBuffered(c As System.Windows.Forms.Control)
+        'Taxes: Remote Desktop Connection and painting
+        'http://blogs.msdn.com/oldnewthing/archive/2006/01/03/508694.aspx
+        If System.Windows.Forms.SystemInformation.TerminalServerSession Then
+            Return
+        End If
+
+        Dim aProp As System.Reflection.PropertyInfo = GetType(System.Windows.Forms.Control).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic Or System.Reflection.BindingFlags.Instance)
+
+        aProp.SetValue(c, True, Nothing)
+    End Sub
     Public Sub CompileSMBXVersions()
         'ListView1.BeginUpdate()
         'Dim li As ListViewItem

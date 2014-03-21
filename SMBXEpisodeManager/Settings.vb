@@ -11,7 +11,7 @@ Public Class Settings
             'RadioButton2.Checked = False
         ElseIf settingsIni.ReadValue("Settings", "dlServer") = "mike" Then
             'RadioButton1.Checked = False
-            RadioButton2.Checked = True
+            mikesIndexRbutton.Checked = True
         End If
 
         If settingsIni.ReadValue("Settings", "Theme") = "smb" Then
@@ -28,6 +28,15 @@ Public Class Settings
         Else
             ver.Text = "SMBX not found!"
             ver.ForeColor = System.Drawing.Color.Red
+        End If
+
+        If settingsIni.ReadValue("Settings", "dlServers") = "mike" Then
+            mikesIndexRbutton.Checked = True
+        Else
+            If settingsIni.ReadValue("Settings", "dlServers") IsNot Nothing Then
+                customIndexRbutton.Checked = True
+                customIndexTb.Text = settingsIni.ReadValue("Settings", "dlServers").ToString()
+            End If
         End If
     End Sub
 
@@ -48,6 +57,15 @@ Public Class Settings
             settingsIni.WriteValue("Settings", "Theme", "smb")
         ElseIf wfRadio.Checked = True Then
             settingsIni.WriteValue("Settings", "Theme", "windows")
+        End If
+
+        If mikesIndexRbutton.Checked = True Then
+            settingsIni.WriteValue("Settings", "dlServers", "mike")
+        Else
+            If customIndexTb IsNot Nothing Then
+                MsgBox("Custom indexes are still being tested. If you have any issues, submit them at: " + vbNewLine + "https://github.com/Luigifan/smbx-install-util-ver2/issues" + vbNewLine + "Also, you must restart for the changes to take effect")
+                settingsIni.WriteValue("Settings", "dlServers", customIndexTb.Text)
+            End If
         End If
         MainForm.RefreshAllItems()
         MainForm.ReloadWorldsDir()
@@ -74,18 +92,43 @@ Public Class Settings
 
     End Sub
 
-    Private Function GetFileVersionInfo(ByVal filename As String) As Version
-        Return Version.Parse(FileVersionInfo.GetVersionInfo(filename).FileVersion)
+    Private Function GetFileVersionInfo(ByVal filename As String) As String
+        Dim versionToParse As String = FileVersionInfo.GetVersionInfo(filename).FileVersion
+        If versionToParse IsNot Nothing Then
+            Return Version.Parse(FileVersionInfo.GetVersionInfo(filename).FileVersion).ToString()
+        Else
+            Return "null"
+        End If
     End Function
 
     Private Sub execDir_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles execDir.TextChanged
         If My.Computer.FileSystem.FileExists(execDir.Text) Then
-            ver.Text = "SMBX " + GetFileVersionInfo(execDir.Text).ToString
-
-            ver.ForeColor = Color.Green
+            If GetFileVersionInfo(execDir.Text) IsNot "null" Then
+                ver.Text = "SMBX " + GetFileVersionInfo(execDir.Text).ToString
+                ver.ForeColor = Color.Green
+            Else
+                ver.Text = "Damaged EXE!!"
+                ver.ForeColor = Color.Red
+            End If
         Else
             ver.Text = "SMBX not found!"
             ver.ForeColor = System.Drawing.Color.Red
+        End If
+    End Sub
+
+    Private Sub customIndexRbutton_CheckedChanged(sender As Object, e As EventArgs) Handles customIndexRbutton.CheckedChanged
+        If customIndexRbutton.Enabled = True Then
+            customIndexTb.Enabled = True
+        Else
+            customIndexTb.Enabled = False
+        End If
+    End Sub
+
+    Private Sub mikesIndexRbutton_CheckedChanged(sender As Object, e As EventArgs) Handles mikesIndexRbutton.CheckedChanged
+        If mikesIndexRbutton.Enabled = True Then
+            customIndexTb.Enabled = False
+        Else
+            customIndexTb.Enabled = True
         End If
     End Sub
 End Class

@@ -34,6 +34,7 @@ Partial Class UpdateConfirm
         '
         'Label1
         '
+        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(153, 9)
         Me.Label1.Name = "Label1"
@@ -43,6 +44,7 @@ Partial Class UpdateConfirm
         '
         'Label2
         '
+        Me.Label2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(205, 33)
         Me.Label2.Name = "Label2"
@@ -52,6 +54,7 @@ Partial Class UpdateConfirm
         '
         'CurrentVer
         '
+        Me.CurrentVer.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CurrentVer.AutoSize = True
         Me.CurrentVer.Location = New System.Drawing.Point(41, 373)
         Me.CurrentVer.Name = "CurrentVer"
@@ -61,6 +64,7 @@ Partial Class UpdateConfirm
         '
         'NewestVer
         '
+        Me.NewestVer.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.NewestVer.AutoSize = True
         Me.NewestVer.Location = New System.Drawing.Point(41, 397)
         Me.NewestVer.Name = "NewestVer"
@@ -70,6 +74,7 @@ Partial Class UpdateConfirm
         '
         'Label5
         '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(333, 373)
         Me.Label5.Name = "Label5"
@@ -79,6 +84,7 @@ Partial Class UpdateConfirm
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Location = New System.Drawing.Point(336, 397)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(41, 23)
@@ -88,6 +94,7 @@ Partial Class UpdateConfirm
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.Location = New System.Drawing.Point(411, 397)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(41, 23)
@@ -97,6 +104,9 @@ Partial Class UpdateConfirm
         '
         'RichTextBox1
         '
+        Me.RichTextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.Location = New System.Drawing.Point(12, 49)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
@@ -111,7 +121,6 @@ Partial Class UpdateConfirm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(492, 438)
-        Me.ControlBox = False
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -120,7 +129,6 @@ Partial Class UpdateConfirm
         Me.Controls.Add(Me.CurrentVer)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "UpdateConfirm"

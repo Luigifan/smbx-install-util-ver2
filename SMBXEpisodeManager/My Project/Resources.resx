@@ -136,17 +136,14 @@
   <data name="StatusStrip_Snow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StatusStrip_Snow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FirePeachHold1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FirePeachHold1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="smbx1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smbx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="snow resized" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snow resized.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="favicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\favicon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mario jump" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mario jump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,11 +160,11 @@
   <data name="AnotherBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AnotherBlock.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background 5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FirePeachHold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FirePeachHold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Background_Main_Full1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Background_Main_Full1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="favicon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\favicon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exclamation mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exclamation mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,26 +178,32 @@
   <data name="Hammer mario jump" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hammer mario jump.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FirePeachHold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FirePeachHold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="background 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FirePeachHold1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FirePeachHold1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="snow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="background 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="snowy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snowy.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="background 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="background 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LuigiSkid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LuigiSkid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Background_Main_Full1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background_Main_Full1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="background 5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\background 5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,10 +217,10 @@
   <data name="Backgrond_Secondary" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Backgrond_Secondary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background 3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LuigiSkid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LuigiSkid1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="smbx1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smbx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="quill--arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\quill--arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
