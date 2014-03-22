@@ -35,7 +35,6 @@ Partial Class XMLMain
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -54,6 +53,9 @@ Partial Class XMLMain
         Me.AuthorTextBox = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripSplitButton()
+        Me.SaveTosubFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CopyToClipboardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.IconImage, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -149,15 +151,6 @@ Partial Class XMLMain
         Me.ToolStrip1.Size = New System.Drawing.Size(534, 25)
         Me.ToolStrip1.TabIndex = 16
         Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton1.Text = "Save"
         '
         'ToolStripButton2
         '
@@ -333,6 +326,28 @@ Partial Class XMLMain
         Me.Label8.TabIndex = 29
         Me.Label8.Text = "Description:"
         '
+        'ToolStripButton1
+        '
+        Me.ToolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SaveTosubFileToolStripMenuItem, Me.CopyToClipboardToolStripMenuItem})
+        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
+        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton1.Name = "ToolStripButton1"
+        Me.ToolStripButton1.Size = New System.Drawing.Size(32, 22)
+        Me.ToolStripButton1.Text = "Save"
+        '
+        'SaveTosubFileToolStripMenuItem
+        '
+        Me.SaveTosubFileToolStripMenuItem.Name = "SaveTosubFileToolStripMenuItem"
+        Me.SaveTosubFileToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.SaveTosubFileToolStripMenuItem.Text = "Save to .sub file"
+        '
+        'CopyToClipboardToolStripMenuItem
+        '
+        Me.CopyToClipboardToolStripMenuItem.Name = "CopyToClipboardToolStripMenuItem"
+        Me.CopyToClipboardToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.CopyToClipboardToolStripMenuItem.Text = "Copy to Clipboard"
+        '
         'XMLMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -387,7 +402,6 @@ Partial Class XMLMain
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
@@ -406,5 +420,8 @@ Partial Class XMLMain
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents ErrorText As System.Windows.Forms.Label
+    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripSplitButton
+    Friend WithEvents SaveTosubFileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CopyToClipboardToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

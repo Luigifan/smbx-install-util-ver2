@@ -32,7 +32,7 @@ Public Class XMLMain
 
     End Sub
 
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         CreateExampleData()
         MsgBox("XML Saved to " + destFile, MsgBoxStyle.Information)
     End Sub
@@ -97,4 +97,17 @@ Public Class XMLMain
 
     End Sub
 
+    Private Sub ToolStripButton1_ButtonClick(sender As Object, e As EventArgs) Handles ToolStripButton1.ButtonClick
+
+    End Sub
+
+    Private Sub SaveTosubFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveTosubFileToolStripMenuItem.Click
+        CreateExampleData()
+    End Sub
+
+    Private Sub CopyToClipboardToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CopyToClipboardToolStripMenuItem.DoubleClick, CopyToClipboardToolStripMenuItem.Click
+        Console.WriteLine(("<episode " + "IconLoc=""" + TextBox7.Text + """ TechName=""" + TextBox5.Text + """ Description=""" + TextBox3.Text + """ Author=""" + TextBox2.Text + """ DownloadLink=""" + """" + " ZipName=""" + TextBox4.Text + """>" + TextBox1.Text + "</episode>"))
+        Clipboard.SetText(("<episode " + "IconLoc=""" + TextBox7.Text + """ TechName=""" + TextBox5.Text + """ Description=""" + TextBox3.Text + """ Author=""" + TextBox2.Text + """ DownloadLink=""" + """" + " ZipName=""" + TextBox4.Text + """>" + TextBox1.Text + "</episode>"))
+        MsgBox("Copied successfully!")
+    End Sub
 End Class
