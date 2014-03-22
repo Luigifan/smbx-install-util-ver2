@@ -4,6 +4,7 @@ Imports System.Xml.Serialization
 
 Public Class XMLMain
     Dim destFile As String = Environment.CurrentDirectory() + "\submission.sub"
+    
 
     Private Sub CreateExampleData()
         'Hi guys! This is where the data is submitted!
@@ -45,7 +46,7 @@ Public Class XMLMain
     End Sub
 
     Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        MsgBox("Due to limitations of Visual Basic and XML, please place your strings INSIDE the quotations marks for you episode to be submitted." & vbNewLine & "Episode names are not required to be in quotation marks" & vbNewLine & "Thank you!", MsgBoxStyle.Critical)
+        'MsgBox("Due to limitations of Visual Basic and XML, please place your strings INSIDE the quotations marks for you episode to be submitted." & vbNewLine & "Episode names are not required to be in quotation marks" & vbNewLine & "Thank you!", MsgBoxStyle.Critical)
     End Sub
 
     Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
@@ -54,7 +55,9 @@ Public Class XMLMain
     End Sub
 
     Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-
+        If TextBox2.Text IsNot Nothing Then
+            AuthorTextBox.Text = TextBox2.Text
+        End If
     End Sub
 
     Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
@@ -73,4 +76,25 @@ Public Class XMLMain
         Console.WriteLine(("<episode " + "IconLoc=""" + TextBox7.Text + """ TechName=""" + TextBox5.Text + """ Description=""" + TextBox3.Text + """ Author=""" + TextBox2.Text + """ DownloadLink=""" + """" + " ZipName=""" + TextBox4.Text + """>" + TextBox1.Text + "</episode>"))
 
     End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        If TextBox1.Text IsNot Nothing Then
+            episodename.Text = TextBox1.Text
+            TextBox5.Text = TextBox1.Text
+        End If
+    End Sub
+
+    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
+        If TextBox3.Text IsNot Nothing Then
+            DescriptionTextBox.Text = TextBox3.Text
+        End If
+    End Sub
+
+    Private Sub TextBox7_TextChanged(sender As Object, e As EventArgs) Handles TextBox7.TextChanged
+        IconImage.BackgroundImage = Nothing
+
+        IconImage.ImageLocation = TextBox7.Text
+
+    End Sub
+
 End Class

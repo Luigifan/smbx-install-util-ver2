@@ -43,4 +43,15 @@ Public Class UpdateConfirm
     Private Sub Label1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Label1.Click
 
     End Sub
+
+    
+
+    Private Sub UpdateConfirm_FormClosed(sender As Object, e As FormClosedEventArgs)
+        Dim versionreader As String
+        versionreader = My.Computer.FileSystem.ReadAllText(Environment.CurrentDirectory + "\version.txt")
+        MsgBox("Will not update!")
+        Me.Close()
+
+        MainForm.isUpdated.Text = "New version: " + versionreader
+    End Sub
 End Class

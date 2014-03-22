@@ -45,6 +45,7 @@ Partial Class XMLMain
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ErrorText = New System.Windows.Forms.Label()
         Me.episodename = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.IconImage = New System.Windows.Forms.PictureBox()
@@ -208,6 +209,7 @@ Partial Class XMLMain
         Me.TextBox7.Name = "TextBox7"
         Me.TextBox7.Size = New System.Drawing.Size(327, 20)
         Me.TextBox7.TabIndex = 6
+        Me.TextBox7.Text = "http://"
         '
         'Button1
         '
@@ -231,6 +233,7 @@ Partial Class XMLMain
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.ErrorText)
         Me.GroupBox2.Controls.Add(Me.episodename)
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.IconImage)
@@ -245,6 +248,14 @@ Partial Class XMLMain
         Me.GroupBox2.TabIndex = 25
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Test"
+        '
+        'ErrorText
+        '
+        Me.ErrorText.AutoSize = True
+        Me.ErrorText.Location = New System.Drawing.Point(393, 28)
+        Me.ErrorText.Name = "ErrorText"
+        Me.ErrorText.Size = New System.Drawing.Size(0, 13)
+        Me.ErrorText.TabIndex = 33
         '
         'episodename
         '
@@ -394,5 +405,6 @@ Partial Class XMLMain
     Friend WithEvents AuthorTextBox As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents ErrorText As System.Windows.Forms.Label
 
 End Class
