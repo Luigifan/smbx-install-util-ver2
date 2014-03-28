@@ -38,18 +38,18 @@ Partial Class MainForm
         Me.isExtract = New System.Windows.Forms.ToolStripLabel()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.episodeTab = New System.Windows.Forms.TabPage()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.AvailableLabel = New System.Windows.Forms.Label()
         Me.RefreshWorlds = New System.Windows.Forms.Button()
         Me.RefreshIndex = New System.Windows.Forms.Button()
         Me.IconImage = New System.Windows.Forms.PictureBox()
         Me.AvailableEpisodes = New System.Windows.Forms.ListBox()
         Me.InstalledWorlds = New System.Windows.Forms.ListBox()
         Me.DescriptionTextBox = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.InstalledLabel = New System.Windows.Forms.Label()
         Me.AuthorTextBox = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.DescriptionLabel = New System.Windows.Forms.Label()
         Me.deleteButton = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.AuthorLabel = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.smbxVersionsTab = New System.Windows.Forms.TabPage()
@@ -207,18 +207,18 @@ Partial Class MainForm
         '
         Me.episodeTab.BackgroundImage = Global.SMBXEpisodeManager.My.Resources.Resources.Background_Main_Full
         Me.episodeTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.episodeTab.Controls.Add(Me.Label3)
+        Me.episodeTab.Controls.Add(Me.AvailableLabel)
         Me.episodeTab.Controls.Add(Me.RefreshWorlds)
         Me.episodeTab.Controls.Add(Me.RefreshIndex)
         Me.episodeTab.Controls.Add(Me.IconImage)
         Me.episodeTab.Controls.Add(Me.AvailableEpisodes)
         Me.episodeTab.Controls.Add(Me.InstalledWorlds)
         Me.episodeTab.Controls.Add(Me.DescriptionTextBox)
-        Me.episodeTab.Controls.Add(Me.Label4)
+        Me.episodeTab.Controls.Add(Me.InstalledLabel)
         Me.episodeTab.Controls.Add(Me.AuthorTextBox)
-        Me.episodeTab.Controls.Add(Me.Label1)
+        Me.episodeTab.Controls.Add(Me.DescriptionLabel)
         Me.episodeTab.Controls.Add(Me.deleteButton)
-        Me.episodeTab.Controls.Add(Me.Label2)
+        Me.episodeTab.Controls.Add(Me.AuthorLabel)
         Me.episodeTab.Controls.Add(Me.Button1)
         Me.episodeTab.Controls.Add(Me.PictureBox1)
         Me.episodeTab.Location = New System.Drawing.Point(4, 22)
@@ -229,15 +229,15 @@ Partial Class MainForm
         Me.episodeTab.Text = "Episodes"
         Me.episodeTab.UseVisualStyleBackColor = True
         '
-        'Label3
+        'AvailableLabel
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(2, 3)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(119, 13)
-        Me.Label3.TabIndex = 10
-        Me.Label3.Text = "Available for Download:"
+        Me.AvailableLabel.AutoSize = True
+        Me.AvailableLabel.BackColor = System.Drawing.Color.Transparent
+        Me.AvailableLabel.Location = New System.Drawing.Point(2, 3)
+        Me.AvailableLabel.Name = "AvailableLabel"
+        Me.AvailableLabel.Size = New System.Drawing.Size(119, 13)
+        Me.AvailableLabel.TabIndex = 10
+        Me.AvailableLabel.Text = "Available for Download:"
         '
         'RefreshWorlds
         '
@@ -275,8 +275,8 @@ Partial Class MainForm
         'AvailableEpisodes
         '
         Me.AvailableEpisodes.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.AvailableEpisodes.FormattingEnabled = True
         Me.AvailableEpisodes.Location = New System.Drawing.Point(2, 22)
         Me.AvailableEpisodes.Name = "AvailableEpisodes"
@@ -286,7 +286,7 @@ Partial Class MainForm
         'InstalledWorlds
         '
         Me.InstalledWorlds.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.InstalledWorlds.FormattingEnabled = True
         Me.InstalledWorlds.Location = New System.Drawing.Point(274, 22)
         Me.InstalledWorlds.Name = "InstalledWorlds"
@@ -304,17 +304,17 @@ Partial Class MainForm
         Me.DescriptionTextBox.Size = New System.Drawing.Size(299, 62)
         Me.DescriptionTextBox.TabIndex = 2
         '
-        'Label4
+        'InstalledLabel
         '
-        Me.Label4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(274, 3)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(90, 13)
-        Me.Label4.TabIndex = 11
-        Me.Label4.Text = "Already Installed: "
+        Me.InstalledLabel.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.InstalledLabel.AutoSize = True
+        Me.InstalledLabel.BackColor = System.Drawing.Color.Transparent
+        Me.InstalledLabel.Location = New System.Drawing.Point(274, 3)
+        Me.InstalledLabel.Name = "InstalledLabel"
+        Me.InstalledLabel.Size = New System.Drawing.Size(90, 13)
+        Me.InstalledLabel.TabIndex = 11
+        Me.InstalledLabel.Text = "Already Installed: "
         '
         'AuthorTextBox
         '
@@ -325,16 +325,16 @@ Partial Class MainForm
         Me.AuthorTextBox.Size = New System.Drawing.Size(299, 20)
         Me.AuthorTextBox.TabIndex = 3
         '
-        'Label1
+        'DescriptionLabel
         '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(22, 401)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(63, 13)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Description:"
+        Me.DescriptionLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.DescriptionLabel.AutoSize = True
+        Me.DescriptionLabel.BackColor = System.Drawing.Color.Transparent
+        Me.DescriptionLabel.Location = New System.Drawing.Point(22, 401)
+        Me.DescriptionLabel.Name = "DescriptionLabel"
+        Me.DescriptionLabel.Size = New System.Drawing.Size(63, 13)
+        Me.DescriptionLabel.TabIndex = 6
+        Me.DescriptionLabel.Text = "Description:"
         '
         'deleteButton
         '
@@ -346,16 +346,16 @@ Partial Class MainForm
         Me.deleteButton.Text = "Delete Selected World"
         Me.deleteButton.UseVisualStyleBackColor = True
         '
-        'Label2
+        'AuthorLabel
         '
-        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(44, 464)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 13)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Author:"
+        Me.AuthorLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.AuthorLabel.AutoSize = True
+        Me.AuthorLabel.BackColor = System.Drawing.Color.Transparent
+        Me.AuthorLabel.Location = New System.Drawing.Point(44, 464)
+        Me.AuthorLabel.Name = "AuthorLabel"
+        Me.AuthorLabel.Size = New System.Drawing.Size(41, 13)
+        Me.AuthorLabel.TabIndex = 7
+        Me.AuthorLabel.Text = "Author:"
         '
         'Button1
         '
@@ -576,12 +576,12 @@ Partial Class MainForm
     Friend WithEvents AuthorTextBox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents IconImage As System.Windows.Forms.PictureBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents DescriptionLabel As System.Windows.Forms.Label
+    Friend WithEvents AuthorLabel As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents deleteButton As System.Windows.Forms.Button
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents AvailableLabel As System.Windows.Forms.Label
+    Friend WithEvents InstalledLabel As System.Windows.Forms.Label
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents isUpdated As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip

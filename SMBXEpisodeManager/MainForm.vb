@@ -7,6 +7,8 @@ Imports System.Xml.Serialization
 Imports Ionic.Zip
 Imports Setting.IniFile
 Imports System.Net
+Imports System.Reflection
+Imports System.Drawing.Text
 
 Public Class MainForm
     Dim NewUpdate As New UpdatingClass
@@ -19,6 +21,7 @@ Public Class MainForm
     Dim generatedDownloadLink As String = "null"
     Dim generatedTechName As String = "null"
     Dim pixelsServers As Boolean = False
+    Dim customFont As PrivateFontCollection = New PrivateFontCollection
 
     Protected Overrides ReadOnly Property CreateParams() As CreateParams
         Get
@@ -253,7 +256,7 @@ Public Class MainForm
     'User generated crap
     '
     '
-    Public Shared Sub SetDoubleBuffered(c As System.Windows.Forms.Control)
+    Public Shared Sub SetDoubleBuffered(ByVal c As System.Windows.Forms.Control)
         'Taxes: Remote Desktop Connection and painting
         'http://blogs.msdn.com/oldnewthing/archive/2006/01/03/508694.aspx
         If System.Windows.Forms.SystemInformation.TerminalServerSession Then
@@ -281,6 +284,16 @@ Public Class MainForm
                 Label121.ForeColor = Color.White
                 Label1301.ForeColor = Color.White
                 Label59.ForeColor = Color.White
+                'Adds the customFont and downloads if necessary
+                customFont.AddFontFile(returnFont())
+                'Change font theme
+                AvailableLabel.Font = New Font(customFont.Families(0), 8)
+                InstalledLabel.Font = New Font(customFont.Families(0), 8)
+                DescriptionLabel.Font = New Font(customFont.Families(0), 5)
+                DescriptionLabel.Location = New Point(6, 401)
+                AuthorLabel.Font = New Font(customFont.Families(0), 5)
+                AuthorLabel.Location = New Point(22, 464)
+
             ElseIf settingsIni.ReadValue("Settings", "Theme") = "windows" Then
                 episodeTab.BackgroundImage = Nothing
                 smbxVersionsTab.BackgroundImage = Nothing
@@ -289,6 +302,16 @@ Public Class MainForm
                 Label121.ForeColor = Color.Black
                 Label1301.ForeColor = Color.Black
                 Label59.ForeColor = Color.Black
+                'Author: 41, 13
+                'Desc: 22, 401
+                AvailableLabel.Font = Control.DefaultFont
+                InstalledLabel.Font = Control.DefaultFont
+                DescriptionLabel.Font = Control.DefaultFont
+                AuthorLabel.Font = Control.DefaultFont
+                AuthorLabel.Location = New Point(44, 464)
+                DescriptionLabel.Font = Control.DefaultFont
+                DescriptionLabel.Location = New Point(22, 401)
+
 
             ElseIf settingsIni.ReadValue("Settings", "Theme") = vbNull Then
                 settingsIni.WriteValue("Settings", "Theme", "smb")
@@ -451,7 +474,24 @@ Public Class MainForm
 
     End Sub
 
-    Private Sub curSMBXLabel_Click(sender As Object, e As EventArgs) Handles curSMBXLabel.Click
+    Private Sub curSMBXLabel_Click(ByVal sender As Object, ByVal e As EventArgs) Handles curSMBXLabel.Click
 
     End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim assemblyRes As String() = [Assembly].GetExecutingAssembly().GetManifestResourceNames
+        For Each asdf As String In assemblyRes
+            MsgBox(asdf)
+        Next
+    End Sub
+
+    Public Function returnFont()
+        If File.Exists(Environment.CurrentDirectory + "\font.ttf".ToString()) = True Then
+            Return Environment.CurrentDirectory + "\font.ttf
+        Else
+            My.Computer.Network.DownloadFile("https://dl.dropboxusercontent.com/u/62304851/emulogic.ttf", Environment.CurrentDirectory + "\font.ttf", vbNull, vbNull, False, 100000000, True)
+            Return Environment.CurrentDirectory + "\font.ttf"
+        End If
+
+    End Function
 End Class
